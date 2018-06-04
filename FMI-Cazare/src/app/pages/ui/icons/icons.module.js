@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.ui.icons', [])
+  angular.module('Fmi-Cazare.pages.ui.icons', [])
       .config(routeConfig);
 
   /** @ngInject */

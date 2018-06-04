@@ -5,14 +5,14 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.theme', [
+  angular.module('Fmi-Cazare.theme', [
       'toastr',
       'chart.js',
       //'angular-chartist',
       //'angular.morris-chart',
       'textAngular',
-      'BlurAdmin.theme.components',
-      'BlurAdmin.theme.inputs'
+      'Fmi-Cazare.theme.components',
+      'Fmi-Cazare.theme.inputs'
   ]);
 
 })();

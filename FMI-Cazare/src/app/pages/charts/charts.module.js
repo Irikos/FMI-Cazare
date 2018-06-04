@@ -5,11 +5,11 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.charts', [
-      'BlurAdmin.pages.charts.amCharts',
-      'BlurAdmin.pages.charts.chartJs',
-      'BlurAdmin.pages.charts.chartist',
-      'BlurAdmin.pages.charts.morris'
+  angular.module('Fmi-Cazare.pages.charts', [
+      'Fmi-Cazare.pages.charts.amCharts',
+      'Fmi-Cazare.pages.charts.chartJs',
+      'Fmi-Cazare.pages.charts.chartist',
+      'Fmi-Cazare.pages.charts.morris'
   ])
       .config(routeConfig);
 
