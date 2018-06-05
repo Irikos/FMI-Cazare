@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.form', ['ui.select', 'ngSanitize'])
+  angular.module('BlurAdmin.pages.form', ['ui.select', 'ngSanitize'])
       .config(routeConfig);
 
   /** @ngInject */

@@ -5,6 +5,6 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.theme.inputs', []);
+  angular.module('BlurAdmin.theme.inputs', []);
 
 })();

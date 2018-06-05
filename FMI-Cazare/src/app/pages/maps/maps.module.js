@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.maps', [])
+  angular.module('BlurAdmin.pages.maps', [])
       .config(routeConfig);
 
   /** @ngInject */

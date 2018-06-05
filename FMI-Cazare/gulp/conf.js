@@ -16,8 +16,7 @@ exports.paths = {
   dist: 'wwwroot',
   devDist: 'dev-release',
   tmp: '.tmp',
-  e2e: 'e2e',
-  bower: 'bower_components'
+  e2e: 'e2e'
 };
 
 /**

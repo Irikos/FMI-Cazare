@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('FMI-Cazare.theme.components')
+  angular.module('BlurAdmin.theme.components')
     .controller('baWizardCtrl', baWizardCtrl);
 
   /** @ngInject */

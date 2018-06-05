@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.ui.typography', [])
+  angular.module('BlurAdmin.pages.ui.typography', [])
       .config(routeConfig);
 
   /** @ngInject */

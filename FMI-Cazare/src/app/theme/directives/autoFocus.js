@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.theme')
+  angular.module('BlurAdmin.theme')
       .directive('autoFocus', autoFocus);
 
   /** @ngInject */

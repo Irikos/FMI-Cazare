@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.charts.amCharts')
+  angular.module('BlurAdmin.pages.charts.amCharts')
       .controller('PieChartCtrl', PieChartCtrl);
 
   /** @ngInject */

@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.components.timeline', [])
+  angular.module('BlurAdmin.pages.components.timeline', [])
     .config(routeConfig);
 
   /** @ngInject */

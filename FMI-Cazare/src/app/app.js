@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('FMI-Cazare', [
+angular.module('BlurAdmin', [
   'ngAnimate',
   'ui.bootstrap',
   'ui.sortable',
@@ -13,6 +13,6 @@ angular.module('FMI-Cazare', [
   'ngJsTree',
   'angular-progress-button-styles',
 
-  'FMI-Cazare.theme',
-  'FMI-Cazare.pages'
+  'BlurAdmin.theme',
+  'BlurAdmin.pages'
 ]);

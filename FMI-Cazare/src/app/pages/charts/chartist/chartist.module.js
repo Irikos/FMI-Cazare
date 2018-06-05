@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.charts.chartist', [])
+  angular.module('BlurAdmin.pages.charts.chartist', [])
     .config(routeConfig);
 
   /** @ngInject */

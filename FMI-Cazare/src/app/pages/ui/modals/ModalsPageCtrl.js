@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.ui.notifications')
+  angular.module('BlurAdmin.pages.ui.notifications')
     .controller('ModalsPageCtrl', ModalsPageCtrl);
 
   /** @ngInject */

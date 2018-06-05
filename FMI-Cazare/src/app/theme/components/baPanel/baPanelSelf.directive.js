@@ -8,7 +8,7 @@
   /**
    * Represents current element as panel, adding all necessary classes.
    */
-  angular.module('FMI-Cazare.theme')
+  angular.module('BlurAdmin.theme')
       .directive('baPanelSelf', baPanelSelf);
 
   /** @ngInject */

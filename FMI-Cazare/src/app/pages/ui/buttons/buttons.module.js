@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.ui.buttons', [])
+  angular.module('BlurAdmin.pages.ui.buttons', [])
       .config(routeConfig);
 
   /** @ngInject */

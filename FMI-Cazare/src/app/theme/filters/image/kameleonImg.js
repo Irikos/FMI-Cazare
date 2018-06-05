@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.theme')
+  angular.module('BlurAdmin.theme')
       .filter('kameleonImg', kameleonImg);
 
   /** @ngInject */

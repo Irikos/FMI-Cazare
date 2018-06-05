@@ -60,7 +60,7 @@ namespace FMI_Cazare
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Use(async (context, next) =>
+            /*app.Use(async (context, next) =>
             {
                 await next.Invoke();
 
@@ -70,7 +70,7 @@ namespace FMI_Cazare
                     context.Response.StatusCode = StatusCodes.Status200OK;
                     await context.Response.SendFileAsync("wwwroot/index.html");
                 }
-            });
+            });*/
 
             app.UseCors(builder => builder
                 .AllowAnyOrigin()

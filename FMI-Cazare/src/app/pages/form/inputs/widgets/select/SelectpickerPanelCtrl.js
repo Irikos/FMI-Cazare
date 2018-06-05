@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.form')
+  angular.module('BlurAdmin.pages.form')
     .controller('SelectpickerPanelCtrl', SelectpickerPanelCtrl);
 
   /** @ngInject */

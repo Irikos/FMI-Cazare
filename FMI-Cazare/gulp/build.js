@@ -19,7 +19,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'APGP-CRM',
+      module: 'BlurAdmin',
       root: 'app'
     }))
     .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
@@ -51,7 +51,6 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(cssFilter)
     .pipe($.sourcemaps.init())
     .pipe($.replace('../../bower_components/bootstrap-sass/assets/fonts/bootstrap/', '../fonts/'))
-    .pipe($.replace('../images/flags.png', '../assets/img/theme/bower/country-flags/images/flags.png'))
     .pipe($.minifyCss({ processImport: false }))
     .pipe($.sourcemaps.write('maps'))
     .pipe(cssFilter.restore)
@@ -92,18 +91,8 @@ gulp.task('other', ['copyVendorImages'], function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
-// copy images from bower dependencies
-gulp.task('main-bower-images', function() {
-  return gulp.src(
-    [path.join(conf.paths.bower, '/**/*.{bmp,jpg,jpeg,png,gif,svg}')]
-	  .concat($.mainBowerFiles('**/*.{eot,svg,ttf,woff,woff2}').map(function(path) { return '!'+path; }))
-  )
-//    .pipe($.flatten())
-    .pipe(gulp.dest(path.join(conf.paths.dist, '/assets/img/theme/bower/')));
-});
-
 gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'main-bower-images']);
+gulp.task('build', ['html', 'fonts', 'other']);

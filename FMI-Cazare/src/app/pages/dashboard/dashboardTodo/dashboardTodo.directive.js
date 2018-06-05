@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.dashboard')
+  angular.module('BlurAdmin.pages.dashboard')
       .directive('dashboardTodo', dashboardTodo);
 
   /** @ngInject */

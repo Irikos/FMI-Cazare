@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.theme')
+  angular.module('BlurAdmin.theme')
     .service('themeLayoutSettings', themeLayoutSettings);
 
   /** @ngInject */

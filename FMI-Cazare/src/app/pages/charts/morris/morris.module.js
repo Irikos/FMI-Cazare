@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.charts.morris', [])
+  angular.module('BlurAdmin.pages.charts.morris', [])
     .config(routeConfig).config(function(baConfigProvider){
       var layoutColors = baConfigProvider.colors;
       Morris.Donut.prototype.defaults.backgroundColor = 'transparent';
