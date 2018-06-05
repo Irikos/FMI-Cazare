@@ -11,7 +11,7 @@
         templateUrl: 'app/pages/session/session.html',
         controller: 'SessionCtrl',
         controllerAs: 'vm', 
-        title: 'Session',
+        title: 'Creează o sesiune',
         sidebarMeta: {
           icon: 'ion-android-home',
           order: 10,

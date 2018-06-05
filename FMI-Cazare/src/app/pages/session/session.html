@@ -1,5 +1,4 @@
 ﻿<div class="widgets">
-
   <div class="row">
     <div class="col-md-12">
       <div ba-panel ba-panel-title="Sesiune nouă de cazare" ba-panel-class="with-scroll">
@@ -7,84 +6,58 @@
           <ba-wizard-step title="Dată desfășurare" form="vm.dates">
             <form name="vm.dates" novalidate>
               <div class="row">
-                <!--<div class="col-xs-12">
-                  <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.name && (vm.session.name.$dirty || vm.dates.$submitted)}'">
-                    <span class="help-block error-block basic-block">Câmp obligatoriu, introdu un nume pentru sesiunea curentă</span>
-                    <label for="sessionName">Numele sesiunii</label>
-                    <input type="text" name="sessionName" ng-model="vm.session.name" required />
-                  </div>
-                </div>-->
-                
-              </div>
-              <div class="row">
                 <div class="col-lg-3 col-xs-12 col-md-3">
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.name && (vm.session.name.$dirty || vm.dates.$submitted)}">
-                    <h4>Nume sesiune:</h4>
+                    <h4>Nume sesiune*:</h4>
                     <input class="form-control input-lg" type="text" name="sessionName" ng-model="vm.session.name" required />
-                    <span class="help-block error-block basic-block">Câmp obligatoriu, introdu un nume pentru sesiune</span>
+                    <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
+                    <h4 class="small-padding-top">Descriere:</h4>
                   </div>
-                  
+                  <textarea class="form-control input-lg" name="sessionDescription" placeholder="O scurta descrierea sesiunii(optional)" ng-model="vm.session.description"></textarea>
                 </div>
+
                 <div class="col-lg-2 col-xs-12 col-md-3">
-                  <h4>Dată început: <span required>{{vm.session.startDate | date:'dd.MM.yyyy'}}</span></h4>
+                  <h4>Dată început*: <span class="yellow">{{vm.session.startDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.startDate && (vm.session.startDate.$dirty || vm.dates.$submitted)}">
-                    <span class="help-block error-block basic-block">Câmp obligatoriu, selectează o dată de început</span>
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.startDate" datepicker-options="options" required></uib-datepicker>
+                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-lg-2 col-xs-12 col-md-3">
-                  <h4>Deadline depuneri cerere: <span required>{{vm.session.deadline | date:'dd.MM.yyyy'}}</span></h4>
+                  <h4>Deadline cereri*: <span class="yellow">{{vm.session.deadline | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.deadline && (vm.session.deadline.$dirty || vm.dates.$submitted)}">
-                    <span class="help-block error-block basic-block">Câmp obligatoriu, selectează un deadline pentru depunerea cererilor</span>
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.deadline" datepicker-options="options" required></uib-datepicker>
+                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-lg-2 col-xs-12 col-md-3">
-                  <h4>Dată sfarșit: <span required>{{vm.session.endDate | date:'dd.MM.yyyy'}}</span></h4>
+                  <h4>Dată sfarșit*: <span class="yellow">{{vm.session.endDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.endDate && (vm.session.endDate.$dirty || vm.dates.$submitted)}">
-                    <span class="help-block error-block basic-block">Câmp obligatoriu, selectează o dată de sfârșit</span>
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.endDate" datepicker-options="options" required></uib-datepicker>
+                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
                     </div>
                   </div>
                 </div>
               </div>
             </form>
           </ba-wizard-step>
-          <ba-wizard-step title="Product Info" form="vm.productInfoForm">
-            <form name="vm.productInfoForm" novalidate>
+          <ba-wizard-step title="Categorii de cămin" form="vm.dormCategories">
+            <!--<form name="vm.dormCategories" novalidate editable-form>-->
               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group has-feedback"
-                       ng-class="{'has-error': vm.productInfoForm.productName.$invalid && (vm.productInfoForm.productName.$dirty || vm.productInfoForm.$submitted)}">
-                    <label for="productName">Product name</label>
-                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Product name" ng-model="vm.productInfo.productName" required>
-                    <span class="help-block error-block basic-block">Required</span>
-                  </div>
-                  <div class="form-group" ng-class="{'has-error': vm.productInfoForm.productId.$invalid && (vm.productInfoForm.productId.$dirty || vm.productInfoForm.$submitted)}">
-                    <label for="productId">Product id</label>
-                    <input type="text" class="form-control" id="productId" name="productId" placeholder="productId" ng-model="vm.productInfo.productId" required>
-                    <span class="help-block error-block basic-block">Required</span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="productName">Category</label>
-                    <select class="form-control" title="Category" selectpicker>
-                      <option selected>Electronics</option>
-                      <option>Toys</option>
-                      <option>Accessories</option>
-                    </select>
+                <div class="col-md-12">
+                  <div ba-panel ba-panel-class="with-scroll">
+                    <div include-with-scope="app/pages/session/widgets/dormCategoriesTable.html"></div>
                   </div>
                 </div>
               </div>
-            </form>
+            <!--</form>-->
           </ba-wizard-step>
           <ba-wizard-step title="Shipment" form="vm.addressForm">
             <form name="vm.addressForm" novalidate>
