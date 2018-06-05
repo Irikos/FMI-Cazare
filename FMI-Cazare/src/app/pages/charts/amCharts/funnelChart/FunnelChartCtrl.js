@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.charts.amCharts')
+  angular.module('FMI-Cazare.pages.charts.amCharts')
       .controller('FunnelChartCtrl', FunnelChartCtrl);
 
   /** @ngInject */

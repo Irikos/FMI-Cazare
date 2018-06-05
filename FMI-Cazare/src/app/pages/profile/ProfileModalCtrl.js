@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.profile')
+  angular.module('FMI-Cazare.pages.profile')
     .controller('ProfileModalCtrl', ProfileModalCtrl);
 
   /** @ngInject */

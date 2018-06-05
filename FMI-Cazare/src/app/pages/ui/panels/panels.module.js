@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.ui.panels', [])
+  angular.module('FMI-Cazare.pages.ui.panels', [])
       .config(routeConfig);
 
   /** @ngInject */

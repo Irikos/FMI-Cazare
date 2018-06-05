@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.charts.chartJs')
+  angular.module('FMI-Cazare.pages.charts.chartJs')
     .controller('chartJsWaveCtrl', chartJsWaveCtrl);
 
   /** @ngInject */

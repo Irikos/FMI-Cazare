@@ -5,11 +5,11 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.charts', [
-      'Fmi-Cazare.pages.charts.amCharts',
-      'Fmi-Cazare.pages.charts.chartJs',
-      'Fmi-Cazare.pages.charts.chartist',
-      'Fmi-Cazare.pages.charts.morris'
+  angular.module('FMI-Cazare.pages.charts', [
+      'FMI-Cazare.pages.charts.amCharts',
+      'FMI-Cazare.pages.charts.chartJs',
+      'FMI-Cazare.pages.charts.chartist',
+      'FMI-Cazare.pages.charts.morris'
   ])
       .config(routeConfig);
 

@@ -8,7 +8,7 @@
   /**
    * Includes basic panel layout inside of current element.
    */
-  angular.module('Fmi-Cazare.theme')
+  angular.module('FMI-Cazare.theme')
       .directive('baPanel', baPanel);
 
   /** @ngInject */

@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.tables')
+  angular.module('FMI-Cazare.pages.tables')
       .controller('TablesPageCtrl', TablesPageCtrl);
 
   /** @ngInject */

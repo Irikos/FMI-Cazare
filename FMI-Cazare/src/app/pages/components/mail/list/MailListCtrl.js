@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.components.mail')
+  angular.module('FMI-Cazare.pages.components.mail')
     .controller('MailListCtrl', MailListCtrl);
 
   /** @ngInject */

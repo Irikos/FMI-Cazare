@@ -5,18 +5,18 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.ui', [
-    'Fmi-Cazare.pages.ui.typography',
-    'Fmi-Cazare.pages.ui.buttons',
-    'Fmi-Cazare.pages.ui.icons',
-    'Fmi-Cazare.pages.ui.modals',
-    'Fmi-Cazare.pages.ui.grid',
-    'Fmi-Cazare.pages.ui.alerts',
-    'Fmi-Cazare.pages.ui.progressBars',
-    'Fmi-Cazare.pages.ui.notifications',
-    'Fmi-Cazare.pages.ui.tabs',
-    'Fmi-Cazare.pages.ui.slider',
-    'Fmi-Cazare.pages.ui.panels',
+  angular.module('FMI-Cazare.pages.ui', [
+    'FMI-Cazare.pages.ui.typography',
+    'FMI-Cazare.pages.ui.buttons',
+    'FMI-Cazare.pages.ui.icons',
+    'FMI-Cazare.pages.ui.modals',
+    'FMI-Cazare.pages.ui.grid',
+    'FMI-Cazare.pages.ui.alerts',
+    'FMI-Cazare.pages.ui.progressBars',
+    'FMI-Cazare.pages.ui.notifications',
+    'FMI-Cazare.pages.ui.tabs',
+    'FMI-Cazare.pages.ui.slider',
+    'FMI-Cazare.pages.ui.panels',
   ])
       .config(routeConfig);
 

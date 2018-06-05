@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.theme')
+  angular.module('FMI-Cazare.theme')
       .directive('animatedChange', animatedChange);
 
   /** @ngInject */

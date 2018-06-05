@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.ui.icons')
+  angular.module('FMI-Cazare.pages.ui.icons')
       .controller('IconsPageCtrl', IconsPageCtrl);
 
   /** @ngInject */

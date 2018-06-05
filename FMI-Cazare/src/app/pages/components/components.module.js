@@ -5,10 +5,10 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.components', [
-    'Fmi-Cazare.pages.components.mail',
-    'Fmi-Cazare.pages.components.timeline',
-    'Fmi-Cazare.pages.components.tree',
+  angular.module('FMI-Cazare.pages.components', [
+    'FMI-Cazare.pages.components.mail',
+    'FMI-Cazare.pages.components.timeline',
+    'FMI-Cazare.pages.components.tree',
   ])
       .config(routeConfig);
 

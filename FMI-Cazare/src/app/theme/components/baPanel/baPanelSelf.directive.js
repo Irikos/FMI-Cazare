@@ -8,7 +8,7 @@
   /**
    * Represents current element as panel, adding all necessary classes.
    */
-  angular.module('Fmi-Cazare.theme')
+  angular.module('FMI-Cazare.theme')
       .directive('baPanelSelf', baPanelSelf);
 
   /** @ngInject */

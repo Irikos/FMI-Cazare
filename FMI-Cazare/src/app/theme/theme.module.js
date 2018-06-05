@@ -5,14 +5,14 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.theme', [
+  angular.module('FMI-Cazare.theme', [
       'toastr',
       'chart.js',
       //'angular-chartist',
       //'angular.morris-chart',
       'textAngular',
-      'Fmi-Cazare.theme.components',
-      'Fmi-Cazare.theme.inputs'
+      'FMI-Cazare.theme.components',
+      'FMI-Cazare.theme.inputs'
   ]);
 
 })();

@@ -1,13 +1,13 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.form')
+  angular.module('FMI-Cazare.pages.form')
       .controller('WizardCtrl', WizardCtrl);
 
   /** @ngInject */
   function WizardCtrl($scope) {
    var vm = this;
-
+    $scope.personalInfoForm;
     vm.personalInfo = {};
     vm.productInfo = {};
     vm.shipment = {};

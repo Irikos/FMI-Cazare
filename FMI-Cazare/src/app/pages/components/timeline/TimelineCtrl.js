@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.components.timeline')
+  angular.module('FMI-Cazare.pages.components.timeline')
       .controller('TimelineCtrl', TimelineCtrl);
 
   /** @ngInject */

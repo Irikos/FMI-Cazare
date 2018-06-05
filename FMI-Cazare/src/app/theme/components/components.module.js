@@ -9,6 +9,6 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.theme.components', []);
+  angular.module('FMI-Cazare.theme.components', []);
 
 })();

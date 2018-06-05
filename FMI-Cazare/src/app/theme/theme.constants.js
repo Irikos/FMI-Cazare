@@ -7,7 +7,7 @@
 
   var IMAGES_ROOT = 'assets/img/';
 
-  angular.module('Fmi-Cazare.theme')
+  angular.module('FMI-Cazare.theme')
     .constant('layoutSizes', {
       resWidthCollapseSidebar: 1200,
       resWidthHideSidebar: 500

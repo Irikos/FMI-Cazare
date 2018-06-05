@@ -5,18 +5,19 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages', [
+  angular.module('FMI-Cazare.pages', [
     'ui.router',
 
-    'Fmi-Cazare.pages.dashboard',
+    'FMI-Cazare.pages.dashboard',
+    'FMI-Cazare.pages.session',
 
-    'Fmi-Cazare.pages.ui',
-    'Fmi-Cazare.pages.components',
-    'Fmi-Cazare.pages.form',
-    'Fmi-Cazare.pages.tables',
-    'Fmi-Cazare.pages.charts',
-    'Fmi-Cazare.pages.maps',
-    'Fmi-Cazare.pages.profile',
+    'FMI-Cazare.pages.ui',
+    'FMI-Cazare.pages.components',
+    'FMI-Cazare.pages.form',
+    'FMI-Cazare.pages.tables',
+    'FMI-Cazare.pages.charts',
+    'FMI-Cazare.pages.maps',
+    'FMI-Cazare.pages.profile',
   ])
       .config(routeConfig);
 

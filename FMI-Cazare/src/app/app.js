@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('Fmi-Cazare', [
+angular.module('FMI-Cazare', [
   'ngAnimate',
   'ui.bootstrap',
   'ui.sortable',
@@ -13,6 +13,6 @@ angular.module('Fmi-Cazare', [
   'ngJsTree',
   'angular-progress-button-styles',
 
-  'Fmi-Cazare.theme',
-  'Fmi-Cazare.pages'
+  'FMI-Cazare.theme',
+  'FMI-Cazare.pages'
 ]);

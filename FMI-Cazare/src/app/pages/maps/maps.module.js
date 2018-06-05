@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.maps', [])
+  angular.module('FMI-Cazare.pages.maps', [])
       .config(routeConfig);
 
   /** @ngInject */

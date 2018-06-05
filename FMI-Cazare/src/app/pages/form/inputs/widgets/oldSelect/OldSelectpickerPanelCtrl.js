@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.form')
+  angular.module('FMI-Cazare.pages.form')
       .controller('OldSelectpickerPanelCtrl', OldSelectpickerPanelCtrl);
 
   /** @ngInject */

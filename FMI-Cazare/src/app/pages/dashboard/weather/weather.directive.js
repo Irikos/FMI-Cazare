@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('Fmi-Cazare.pages.dashboard')
+  angular.module('FMI-Cazare.pages.dashboard')
       .directive('weather', weather);
 
   /** @ngInject */
