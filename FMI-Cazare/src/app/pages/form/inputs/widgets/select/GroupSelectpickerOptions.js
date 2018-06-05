@@ -6,7 +6,7 @@
 (function() {
   'use strict';
 
-  angular.module('BlurAdmin.pages.form')
+  angular.module('FMI-Cazare.pages.form')
     .filter('groupSelectpickerOptions', GroupSelectpickerOptions);
 
   /** @ngInject */

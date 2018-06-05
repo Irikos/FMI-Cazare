@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.theme')
+  angular.module('FMI-Cazare.theme')
       .directive('trackWidth', trackWidth);
 
   /** @ngInject */

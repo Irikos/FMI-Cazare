@@ -30,7 +30,7 @@
     white: '#10c4b5',
   };
 
-  angular.module('BlurAdmin.theme')
+  angular.module('FMI-Cazare.theme')
     .provider('baConfig', configProvider);
 
   /** @ngInject */

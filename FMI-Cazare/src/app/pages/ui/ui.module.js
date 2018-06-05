@@ -5,18 +5,18 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.ui', [
-    'BlurAdmin.pages.ui.typography',
-    'BlurAdmin.pages.ui.buttons',
-    'BlurAdmin.pages.ui.icons',
-    'BlurAdmin.pages.ui.modals',
-    'BlurAdmin.pages.ui.grid',
-    'BlurAdmin.pages.ui.alerts',
-    'BlurAdmin.pages.ui.progressBars',
-    'BlurAdmin.pages.ui.notifications',
-    'BlurAdmin.pages.ui.tabs',
-    'BlurAdmin.pages.ui.slider',
-    'BlurAdmin.pages.ui.panels',
+  angular.module('FMI-Cazare.pages.ui', [
+    'FMI-Cazare.pages.ui.typography',
+    'FMI-Cazare.pages.ui.buttons',
+    'FMI-Cazare.pages.ui.icons',
+    'FMI-Cazare.pages.ui.modals',
+    'FMI-Cazare.pages.ui.grid',
+    'FMI-Cazare.pages.ui.alerts',
+    'FMI-Cazare.pages.ui.progressBars',
+    'FMI-Cazare.pages.ui.notifications',
+    'FMI-Cazare.pages.ui.tabs',
+    'FMI-Cazare.pages.ui.slider',
+    'FMI-Cazare.pages.ui.panels',
   ])
       .config(routeConfig);
 

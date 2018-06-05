@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.theme.components')
+  angular.module('FMI-Cazare.theme.components')
       .directive('backTop', backTop);
 
   /** @ngInject */

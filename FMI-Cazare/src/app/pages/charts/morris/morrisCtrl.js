@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.charts.morris')
+  angular.module('FMI-Cazare.pages.charts.morris')
     .controller('morrisCtrl', morrisCtrl);
 
   /** @ngInject */

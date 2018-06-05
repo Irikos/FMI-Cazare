@@ -27,10 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="src\i18n\language_en.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove=".travis.yml" />
     <None Remove="gulpfile.js" />
   </ItemGroup>
