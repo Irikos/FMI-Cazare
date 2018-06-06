@@ -74,6 +74,98 @@
 
           <ba-wizard-step title="Camere">
 
+
+            <div class="row">
+              <div class="col-md-12" ng-repeat="dorm in dorms">
+                <div ba-panel ba-panel-title="C&#259;min: {{dorm.name}}, categorie: {{getDormCategory(dorm.categoryId)}}" ba-panel-class="with-scroll">
+                  <div class="add-row-editable-table">
+                    <button class="btn btn-primary" ng-click="AddRoom(dorm)">Adaug&#259; camer&#259;</button>
+                  </div>
+                  <div class="horizontal-scroll">
+                    <table class="table" st-table="safeCopyRooms" st-safe-src="rooms">
+                      <thead>
+                        <tr class="sortable ">
+                          <th class="table-id" st-sort="id" st-sort-default="true">ID</th>
+                          <th st-sort="roomNumber">Num&#259;r camera</th>
+                          <th st-sort="size">Num&#259;r locuri</th>
+                          <th st-sort="sex">Sex</th>
+                          <th>Ac&#539;iuni</th>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th>
+                            <input st-search="roomNumber" placeholder="Caut&#259; num&#259;r camera" class="input-sm form-control search-input"
+                                   type="search" />
+                          </th>
+                          <th>
+                            <input st-search="size" placeholder="Caut&#259; num&#259;r locuri" class="input-sm form-control search-input"
+                                   type="search" />
+                          </th>
+                          <th>
+                            <select st-search="sex" class="input-sm form-control search-input">
+                              <option value="">Toate</option>
+                              <option value="M">Masculin</option>
+                              <option value="F">Feminin</option>
+                            </select>
+                          </th>
+                          <th>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="room in rooms" class="editable-row">
+                          <td>
+                            {{ room.roomId }}
+                          </td>
+                          <td>
+                            <span editable-text="room.roomNumber" e-name="name" e-form="rowform" e-required>
+                              {{ room.roomNumber || 'empty' }}
+                            </span>
+                          </td>
+                          <td>
+                            <span editable-text="room.size" e-name="name" e-form="rowform" e-required>
+                              {{ room.size || 'empty' }}
+                            </span>
+                          </td>
+                          <td>
+                            <span editable-select="room.sex" e-name="name" e-form="rowform" e-required e-selectpicker e-ng-options="sex.type as sex.name for sex in sexTypes">
+                              {{ room.sex || 'empty' }}
+                            </span>
+                          </td>
+                          <td>
+                            <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                                  shown="inserted == room">
+                              <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+                                Save
+                              </button>
+                              <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+                                Cancel
+                              </button>
+                            </form>
+                            <div class="buttons" ng-show="!rowform.$visible">
+                              <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+                              <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeDorm($index)">&#536;terge</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="6" class="text-center">
+                            <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+                          </td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
           </ba-wizard-step>
 
           <ba-wizard-step title="Sf&#226;r&#537;it">

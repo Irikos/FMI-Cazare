@@ -10,6 +10,8 @@
     editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
 
     var vm = this;
+    $scope.safeCopyDorms = $scope.dorms;
+    $scope.safeCopyRooms = $scope.rooms;
     $scope.dates;
     $scope.session = {};
     $scope.session.startDate = null;
@@ -72,8 +74,19 @@
         "sex": "M",
       },
     ];
+
+    $scope.sexTypes = [
+      {
+        "id": 1,
+        "name": "Masculin",
+        "type": "M",
+      },
+      {
+        "id": 2,
+        "name": "Feminim",
+        "type": "F"
+      }];
     
-    $scope.safeCopyDorms = $scope.dorms;
 
     $scope.addDormCategory = function () {
       var categoryId = $scope.dormCategories[$scope.dormCategories.length - 1].categoryId + 1;
@@ -112,6 +125,20 @@
 
     $scope.removeDorm = function (index) {
       $scope.dorms.splice(index, 1);
+    }
+
+    $scope.getRoomsByDorm = function (dorm) {
+      var selected = $filter('filter')($scope.rooms, { dormId: dorm.dormId });
+      return selected.length ? selected : [];
+    }
+
+    $scope.addRoom = function (room) {
+      $scope.push(room);
+    }
+
+    $scope.removeRoom = function (room) {
+      var index = $scope.rooms.indexOf(rooms);
+      $scope.rooms.splice(index, 1);
     }
 
     $scope.dormModal = function (dorm) {
