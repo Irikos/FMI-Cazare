@@ -1,0 +1,69 @@
+﻿<div class="add-row-editable-table">
+  <button class="btn btn-primary" ng-click="addDorm()">Adaug&#259; c&#259;min</button>
+</div>
+<div class="horizontal-scroll">
+  <table class="table" st-table="safeCopyDorms" st-safe-src="dorms">
+    <thead>
+      <tr class="sortable ">
+        <th class="table-id" st-sort="id" st-sort-default="true">ID</th>
+        <th st-sort="name">Nume</th>
+        <th st-sort="dormCategoryId">Categorie</th>
+        <th>Ac&#539;iuni</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>
+          <input st-search="name" placeholder="Caut&#259; nume" class="input-sm form-control search-input"
+                 type="search" />
+        </th>
+        <th>
+          <select st-search="dormCategoryId" class="input-sm form-control search-input">
+            <option value="">Toate</option>
+            <option ng-repeat="dormCategory in dormCategories" value={{dormCategory.categoryId}}>{{getDormCategory(dormCategory.categoryId)}}</option>
+          </select>
+        </th>
+        <th>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dorm in safeCopyDorms" class="editable-row">
+        <td>
+          {{ dorm.dormId }}
+        </td>
+        <td>
+          <span editable-text="dorm.name" e-name="name" e-form="rowform" e-required>
+            {{ dorm.name || 'empty' }}
+          </span>
+        </td>
+        <td>
+          <span editable-select="dorm.dormCategoryId" e-name="name" e-form="rowform" e-required e-selectpicker e-ng-options="category.categoryId as category.name for category in dormCategories">
+            {{ getDormCategory(dorm.dormCategoryId) || 'empty' }}
+          </span>
+        </td>
+        <td>
+          <form editable-form name="rowform" ng-show="rowform.$visible" class="form-buttons form-inline"
+                shown="inserted == dorm">
+            <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary editable-table-button btn-xs">
+              Save
+            </button>
+            <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default editable-table-button btn-xs">
+              Cancel
+            </button>
+          </form>
+          <div class="buttons" ng-show="!rowform.$visible">
+            <button class="btn btn-primary editable-table-button btn-xs" ng-click="rowform.$show()">Edit</button>
+            <button class="btn btn-danger editable-table-button btn-xs" ng-click="removeDorm($index)">&#536;terge</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" class="text-center">
+          <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

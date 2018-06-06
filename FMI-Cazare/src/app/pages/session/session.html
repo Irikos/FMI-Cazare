@@ -1,27 +1,28 @@
 ﻿<div class="widgets">
   <div class="row">
     <div class="col-md-12">
-      <div ba-panel ba-panel-title="Sesiune nouă de cazare" ba-panel-class="with-scroll">
+      <div ba-panel ba-panel-title="Sesiune nou&#259; de cazare" ba-panel-class="with-scroll">
         <ba-wizard>
-          <ba-wizard-step title="Dată desfășurare" form="vm.dates">
+
+          <ba-wizard-step title="Dat&#259; desf&#259;&#537;urare" form="vm.dates">
             <form name="vm.dates" novalidate>
               <div class="row">
                 <div class="col-lg-3 col-xs-12 col-md-3">
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.name && (vm.session.name.$dirty || vm.dates.$submitted)}">
                     <h4>Nume sesiune*:</h4>
                     <input class="form-control input-lg" type="text" name="sessionName" ng-model="vm.session.name" required />
-                    <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
+                    <span class="help-block error-block basic-block">*C&#226;mp obligatoriu</span>
                     <h4 class="small-padding-top">Descriere:</h4>
                   </div>
-                  <textarea class="form-control input-lg" name="sessionDescription" placeholder="O scurta descrierea sesiunii(optional)" ng-model="vm.session.description"></textarea>
+                  <textarea class="form-control input-lg" name="sessionDescription" placeholder="O scurt&#259; descrierea sesiunii (optional)" ng-model="vm.session.description"></textarea>
                 </div>
 
                 <div class="col-lg-2 col-xs-12 col-md-3">
-                  <h4>Dată început*: <span class="yellow">{{vm.session.startDate | date:'dd.MM.yyyy'}}</span></h4>
+                  <h4>Dat&#259; &#238;nceput*: <span class="yellow">{{vm.session.startDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.startDate && (vm.session.startDate.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.startDate" datepicker-options="options" required></uib-datepicker>
-                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
+                      <span class="help-block error-block basic-block">*C&#226;mp obligatoriu</span>
                     </div>
                   </div>
                 </div>
@@ -31,66 +32,53 @@
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.deadline && (vm.session.deadline.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.deadline" datepicker-options="options" required></uib-datepicker>
-                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
+                      <span class="help-block error-block basic-block">*C&#226;mp obligatoriu</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="col-lg-2 col-xs-12 col-md-3">
-                  <h4>Dată sfarșit*: <span class="yellow">{{vm.session.endDate | date:'dd.MM.yyyy'}}</span></h4>
+                  <h4>Dat&#259; sf&#226;r&#537;it*: <span class="yellow">{{vm.session.endDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.endDate && (vm.session.endDate.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
                       <uib-datepicker ng-model="vm.session.endDate" datepicker-options="options" required></uib-datepicker>
-                      <span class="help-block error-block basic-block">*Câmp obligatoriu</span>
+                      <span class="help-block error-block basic-block">*C&#226;mp obligatoriu</span>
                     </div>
                   </div>
                 </div>
               </div>
             </form>
           </ba-wizard-step>
-          <ba-wizard-step title="Categorii de cămin" form="vm.dormCategories">
+
+          <ba-wizard-step title="Categorii de c&#259;min">
             <!--<form name="vm.dormCategories" novalidate editable-form>-->
-              <div class="row">
-                <div class="col-md-12">
-                  <div ba-panel ba-panel-class="with-scroll">
-                    <div include-with-scope="app/pages/session/widgets/dormCategoriesTable.html"></div>
-                  </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div ba-panel ba-panel-class="with-scroll">
+                  <div include-with-scope="app/pages/session/widgets/dormCategoriesTable/dormCategoriesTable.html"></div>
                 </div>
               </div>
+            </div>
             <!--</form>-->
           </ba-wizard-step>
-          <ba-wizard-step title="Shipment" form="vm.addressForm">
-            <form name="vm.addressForm" novalidate>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group has-feedback"
-                       ng-class="{'has-error': vm.addressForm.address.$invalid && (vm.addressForm.address.$dirty || vm.addressForm.$submitted)}">
-                    <label for="productName">Shipment address</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Shipment address" ng-model="vm.shipment.address" required>
-                    <span class="help-block error-block basic-block">Required</span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="productName">Shipment method</label>
-                    <select class="form-control" title="Category" selectpicker>
-                      <option selected>Fast & expensive</option>
-                      <option>Cheap & free</option>
-                    </select>
-                  </div>
+
+          <ba-wizard-step title="C&#259;mine">
+            <div class="row">
+              <div class="col-md-12">
+                <div ba-panel ba-panel-title="List&#259; c&#259;mine" ba-panel-class="with-scroll">
+                  <div include-with-scope="app/pages/session/widgets/dormsTable/dormsTable.html"></div>
                 </div>
               </div>
-              <div class="checkbox">
-                <label class="custom-checkbox">
-                  <input type="checkbox">
-                  <span>Save shipment info</span>
-                </label>
-              </div>
-            </form>
+            </div>
           </ba-wizard-step>
-          <ba-wizard-step title="Finish">
+
+          <ba-wizard-step title="Camere">
+
+          </ba-wizard-step>
+
+          <ba-wizard-step title="Sf&#226;r&#537;it">
             <form class="form-horizontal" name="vm.finishForm" novalidate>
-              Congratulations! You have successfully filled the form!
+              Felicit&#259;ri!
             </form>
           </ba-wizard-step>
         </ba-wizard>

@@ -1,7 +1,9 @@
 ﻿(function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.session', [])
+  angular.module('FMI-Cazare.pages.session', [
+    'FMI-Cazare.pages.session.dormModal'
+  ])
     .config(routeConfig);
 
   function routeConfig($stateProvider) {
@@ -13,7 +15,7 @@
         controllerAs: 'vm', 
         title: 'Creează o sesiune',
         sidebarMeta: {
-          icon: 'ion-android-home',
+          icon: 'fa fa-plus-square',
           order: 10,
         },
       })
