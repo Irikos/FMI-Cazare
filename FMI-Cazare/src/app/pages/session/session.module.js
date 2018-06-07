@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('FMI-Cazare.pages.session', [
-    'FMI-Cazare.pages.session.dormModal'
+    'FMI-Cazare.pages.session.addRoomsModal'
   ])
     .config(routeConfig);
 
