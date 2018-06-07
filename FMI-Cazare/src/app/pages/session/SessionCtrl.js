@@ -281,7 +281,7 @@
         scope: $scope,
         templateUrl: 'app/pages/session/widgets/addRoomsModal/addRoomsModal.html',
         controller: 'addRoomsModalCtrl',
-        size: 'lg',
+        size: 'md',
         resolve: {
           items: function () {
             return dorm;

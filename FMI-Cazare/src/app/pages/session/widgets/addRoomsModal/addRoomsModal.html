@@ -3,24 +3,24 @@
     <button type="button" class="close" ng-click="cancel()" aria-label="Close">
       <em class="ion-ios-close-empty sn-link-close"></em>
     </button>
-    <h4 class="modal-title">Modal title</h4>
+    <h4 class="modal-title">C&#259;minul {{dorm.name}}</h4>
   </div>
   <div class="modal-body">
     <div class="add-row-editable-table">
-      <label for="startNumber">Numar de inceput</label>
-      <input type="number" name="startNumber" class="form-control input-sm" ng-model="data.startNumber"/>
-      <label for="endNumber">Numar de sfarsit</label>
-      <input type="number" name="endNumber" class="form-control input-sm" ng-model="data.endNumber"/>
-      <label for="size">Numar de persoane</label>
-      <input type="number" name="size" class="form-control input-sm" ng-model="data.size"/>
+      <label for="startNumber">Num&#259;r de &#238;nceput</label>
+      <input type="number" name="startNumber" class="form-control input-sm" ng-model="data.startNumber" />
+      <label for="endNumber">Num&#259;r de sf&#226;r&#351;it</label>
+      <input type="number" name="endNumber" class="form-control input-sm" ng-model="data.endNumber" />
       <label for="sex">Sex</label>
       <select class="input-sm form-control" name="sex" ng-model="data.sex">
         <option value="M">Masculin</option>
         <option value="F">Feminin</option>
       </select>
+      <label for="size">Num&#259;r de persoane</label>
+      <input type="number" name="size" class="form-control input-sm" ng-model="data.size" />
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-primary" ng-click="ok(data)">Save changes</button>
+    <button type="button" class="btn btn-primary" ng-click="ok(data)">Salveaz&#259;</button>
   </div>
 </div>
