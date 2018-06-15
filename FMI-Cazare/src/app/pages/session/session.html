@@ -7,7 +7,7 @@
           <ba-wizard-step title="Dat&#259; desf&#259;&#537;urare" form="vm.dates">
             <form name="vm.dates">
               <div class="row">
-                <div class="col-xlg-3 col-xs-12 col-md-3">
+                <div class="col-xlg-3 col-xs-12 col-md-6" style="padding-bottom: 15px">
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.name && (vm.session.name.$dirty || vm.dates.$submitted)}">
                     <h4>Nume sesiune*:</h4>
                     <input class="form-control input-lg" type="text" name="sessionName" ng-model="vm.session.name" required />
@@ -17,7 +17,7 @@
                   <textarea class="form-control input-lg" name="sessionDescription" placeholder="O scurt&#259; descrierea sesiunii (optional)" ng-model="vm.session.description"></textarea>
                 </div>
 
-                <div class="col-xlg-3 col-xs-12 col-md-3">
+                <div class="col-xlg-3 col-xs-12 col-md-6">
                   <h4>Dat&#259; &#238;nceput*: <span class="yellow">{{vm.session.startDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.startDate && (vm.session.startDate.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
@@ -27,7 +27,7 @@
                   </div>
                 </div>
 
-                <div class="col-xlg-3 col-xs-12 col-md-3">
+                <div class="col-xlg-3 col-xs-12 col-md-6">
                   <h4>Deadline cereri*: <span class="yellow">{{vm.session.deadline | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.deadline && (vm.session.deadline.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
@@ -37,7 +37,7 @@
                   </div>
                 </div>
 
-                <div class="col-xlg-3 col-xs-12 col-md-3">
+                <div class="col-xlg-3 col-xs-12 col-md-6">
                   <h4>Dat&#259; sf&#226;r&#537;it*: <span class="yellow">{{vm.session.endDate | date:'dd.MM.yyyy'}}</span></h4>
                   <div class="form-group has-feedback" ng-class="{'has-error': !vm.session.endDate && (vm.session.endDate.$dirty || vm.dates.$submitted)}">
                     <div class="uib-datepicker-wrap">
