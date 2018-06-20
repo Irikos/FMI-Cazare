@@ -24,11 +24,15 @@
                   <input st-search="firstName" placeholder="Caută după prenume" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <input st-search="CNP" placeholder="Caută după CNP" class="input-sm form-control search-input" type="search" />
+                  <input st-search="cnp" placeholder="Caută după CNP" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <input st-search="specialization" placeholder="Caută după specializare" class="input-sm form-control search-input"
-                         type="search" />
+                  <select st-search="specialization" class="input-sm form-control search-input">
+                    <option value="">Toate</option>
+                    <option value="Informatică">Informatică</option>
+                    <option value="CTI">CTI</option>
+                    <option value="Matematică">Matematică</option>
+                  </select>
                 </th>
                 <th>
                   <input st-search="message" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
@@ -36,10 +40,10 @@
                 <th>
                   <select st-search="status" class="input-sm form-control search-input">
                     <option value="">Toate</option>
-                    <option value="true">Acceptate</option>
-                    <option value="false">Respinse</option>
-                    <option value="false">Neevaluate</option>
-                    <option value="false">În așteptare</option>
+                    <option value="acceptată">Acceptate</option>
+                    <option value="respinsă">Respinse</option>
+                    <option value="neevaluată">Neevaluate</option>
+                    <option value="în așteptare">În așteptare</option>
                   </select>
                 </th>
                 <th></th>
@@ -50,12 +54,12 @@
                 <td class="table-id">{{$index}}</td>
                 <td>
                   <span>
-                    {{ form.last_name || "empty"}}
+                    {{ form.lastName || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.first_name || "empty"}}
+                    {{ form.firstName || "empty"}}
                   </span>
                 </td>
                 <td>
@@ -80,7 +84,7 @@
                 </td>
                 <td>
                   <div class="buttons">
-                    <button class="btn btn-primary editable-table-button btn-xs" data-toggle="modal" ng-click="editPaymentModal('app/pages/payments/postalMandate/widgets/editPaymentModal/editPaymentModal.html', 'lg', payment)">Evaluează</button>
+                    <button class="btn btn-primary editable-table-button btn-xs" data-toggle="modal" ng-click="viewStudentModal('app/pages/managementTable/widgets/studentFormModal.html', 'lg', form)">Evaluează</button>
                   </div>
                 </td>
               </tr>

@@ -1,0 +1,126 @@
+﻿<div class="modal-content white-text">
+  <div class="modal-body">
+    <div ba-panel
+         ba-panel-title="Cererea studentului"
+         ba-panel-class="with-scroll">
+      <div>
+        <form editable-form name="rowform" class="form-horizontal" ng-show="rowform.$visible" shown="true">
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group row">
+                <label for="lastName" class="col-xs-2">Nume:</label>
+                <div class="col-xs-10">
+                  <input ng-model="form.lastName" type="text" class="form-control" id="lastName" placeholder="Nume" e-form="rowform" e-name="lastName" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group row">
+                <label for="firstName" class="col-xs-2">Prenume:</label>
+                <div class="col-xs-10">
+                  <input ng-model="form.firstName" type="text" class="form-control" id="firstName" placeholder="Prenume" e-form="rowform" e-name="firstName" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group row">
+                <label for="CNP" class="col-xs-2">CNP:</label>
+                <div class="col-xs-10">
+                  <input ng-model="form.cnp" type="text" class="form-control" id="CNP" placeholder="CNP" e-form="rowform" e-name="CNP" disabled>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group row">
+                <label for="status" class="col-xs-2 ">Stare:</label>
+                <div class="col-xs-10">
+                  <input ng-model="form.status" type="text" class="form-control" id="status" placeholder="Stare" e-form="rowform" e-name="status" disabled>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group row">
+                <label for="message" class="col-xs-2">Mesaj:</label>
+                <div class="col-xs-10">
+                  <textarea ng-model="form.message" type="text" class="form-control" id="message" placeholder="Mesaj" e-form="rowform" e-name="message" disabled></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="row">
+                  <label for="registerDate" class="col-xs-6 control-label">Data inregistrare:</label>
+                  <div class="col-xs-6">
+                    <input editable-text="payment.registerDate" type="text" class="form-control" id="registerDate" placeholder="Register date" e-form="rowform" e-name="fullName">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="row">
+                  <label for="transactionDate" class="col-xs-6 control-label">Data tranzactiei:</label>
+                  <div class="col-xs-6">
+                    <input editable-text="payment.transactionDate" type="text" class="form-control" id="transactionDate" placeholder="Transaction date" e-form="rowform" e-name="isCompany">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="row">
+                  <label for="opNumber" class="col-xs-6 control-label">Nr. OP:</label>
+                  <div class="col-xs-6">
+                    <input editable-text="payment.opNumber" type="text" class="form-control" id="opNumber" placeholder="Op number" e-form="rowform" e-name="address1">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="row">
+                  <label for="fiscalCode" class="col-xs-6 control-label">Excel row:</label>
+                  <div class="col-xs-6">
+                    <input editable-text="payment.rowNumber" type="text" class="form-control" id="rowNumber" placeholder="Row number" e-form="rowform" e-name="rowNumber">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="row">
+                  <label for="description" class="col-xs-6 control-label">Descriere:</label>
+                  <div class="col-xs-6">
+                    <textarea editable-textarea="payment.description" type="text" class="form-control" id="description" placeholder="Description" e-form="rowform" e-name="country"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>-->
+
+          <div class="modal-footer form-group col-xs-12">
+            <button type="submit" class="btn btn-success" ng-click="validate(form)">Validează</button>
+            <button type="submit" class="btn btn-danger" ng-click="reject(form)">Respinge</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
