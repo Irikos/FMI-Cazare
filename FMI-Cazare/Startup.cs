@@ -48,7 +48,7 @@ namespace FMI_Cazare
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "FMI Cazare API" });
+                c.SwaggerDoc("v1", new Info { Title = "FMI-Cazare API" });
             });
         }
 
@@ -60,7 +60,7 @@ namespace FMI_Cazare
                 app.UseDeveloperExceptionPage();
             }
 
-            /*app.Use(async (context, next) =>
+            app.Use(async (context, next) =>
             {
                 await next.Invoke();
 
@@ -70,7 +70,7 @@ namespace FMI_Cazare
                     context.Response.StatusCode = StatusCodes.Status200OK;
                     await context.Response.SendFileAsync("wwwroot/index.html");
                 }
-            });*/
+            });
 
             app.UseCors(builder => builder
                 .AllowAnyOrigin()

@@ -1,0 +1,86 @@
+﻿<div ba-panel>
+  <section id="cd-timeline" class="cd-container cssanimations">
+
+    <!--<div class="cd-timeline-block">
+      <div class="cd-timeline-img">
+        <div class="kameleon-icon"><img ng-src="{{::( 'Analytics' | kameleonImg )}}"></div>
+      </div>
+      <div class="cd-timeline-content danger">
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="createForm();">
+          <i class="fa fa-pencil-square-o"></i>
+          Editează cererea
+        </button>
+        <h5>Cererea ta este {{formRejected.status}}</h5>
+        <p>
+          Motivul: {{formRejected.message}}
+        </p>
+        <span class="cd-date"><span style="font-weight: bold;">Respinsă la:</span> {{formatDate(formRejected.date)}}</span>
+      </div>
+    </div>-->
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img">
+        <div class="kameleon-icon"><img ng-src="{{::( 'Party-Poppers' | kameleonImg )}}"></div>
+      </div>
+      <div class="cd-timeline-content success">
+        <h5>Felicitări!</h5>
+        <p>
+          Cererea ta este {{formApproved.status}}
+        </p>
+        <span class="cd-date"><span style="font-weight: bold;">Aprobată la:</span> {{formatDate(formApproved.date)}}</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img">
+        <div class="kameleon-icon"><img ng-src="{{::( 'Checklist' | kameleonImg )}}"></div>
+      </div>
+      <div class="cd-timeline-content warning">
+        <h5>{{form.name}}</h5>
+        <p>
+          Cererea ta este {{form.status}}
+        </p>
+        <span class="cd-date"><span style="font-weight: bold;">Trimisă la:</span> {{formatDate(form.date)}}</span>
+      </div>
+    </div>
+
+    <div class="cd-timeline-block">
+      <div class="cd-timeline-img">
+        <div class="kameleon-icon"><img ng-src="{{::( 'Student-3' | kameleonImg )}}"></div>
+      </div>
+      <div class="cd-timeline-content primary">
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="createForm();" ng-if="form.status == 'netrimis'">
+          <i class="fa fa-plus-square-o"></i>
+          Creează cerere de cazare
+        </button>
+        <h5>{{session.name}}</h5>
+        <p>
+          Sesiunea este {{session.status}}
+        </p>
+        <span class="cd-date"><span style="font-weight: bold;">Deadline:</span> {{formatDate(session.deadline)}}</span>
+      </div>
+    </div>
+
+
+    <div ng-repeat="backup in backups" class="cd-timeline-block">
+      <div class="cd-timeline-img">
+        <div class="kameleon-icon"><img ng-src="{{::( 'Backup' | kameleonImg )}}"></div>
+      </div>
+      <div class="cd-timeline-content primary">
+        <button type="button" class="btn btn-danger btn-with-icon pull-right backup-buttons-margin" ng-click="deleteBackup(backup, $index);">
+          <i class="fa fa-trash"></i>
+          Delete
+        </button>
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="restoreBackup(backup);">
+          <i class="fa fa-cloud-download"></i>
+          Restore
+        </button>
+        <h5>{{backup.description}}</h5>
+        <p>
+          {{backup.filename}}
+        </p>
+        <span class="cd-date">{{formatDate(backup.createdDate)}}</span>
+      </div>
+    </div>
+  </section>
+</div>

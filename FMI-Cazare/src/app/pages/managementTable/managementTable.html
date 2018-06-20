@@ -1,0 +1,100 @@
+﻿<div class="widgets">
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-title="Cereri de cazare" ba-panel-class="with-scroll">
+        <div class="horizontal-scroll">
+          <table class="table" st-table="safeCopyForms" st-safe-src="forms">
+            <thead>
+              <tr class="sortable ">
+                <th class="table-id" st-sort="no" st-sort-default="true">Nr. Crt.</th>
+                <th st-sort="lastName">Nume</th>
+                <th st-sort="firstName">Prenume</th>
+                <th st-sort="cnp">CNP</th>
+                <th st-sort="specialization">Specializare</th>
+                <th st-sort="message">Mesaj</th>
+                <th st-sort="status">Starea cererii</th>
+                <th>Acțiuni</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th>
+                  <input st-search="lastName" placeholder="Caută după nume" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                  <input st-search="firstName" placeholder="Caută după prenume" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                  <input st-search="CNP" placeholder="Caută după CNP" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                  <input st-search="specialization" placeholder="Caută după specializare" class="input-sm form-control search-input"
+                         type="search" />
+                </th>
+                <th>
+                  <input st-search="message" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
+                </th>
+                <th>
+                  <select st-search="status" class="input-sm form-control search-input">
+                    <option value="">Toate</option>
+                    <option value="true">Acceptate</option>
+                    <option value="false">Respinse</option>
+                    <option value="false">Neevaluate</option>
+                    <option value="false">În așteptare</option>
+                  </select>
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="form in safeCopyForms" ng-class="form.class">
+                <td class="table-id">{{$index}}</td>
+                <td>
+                  <span>
+                    {{ form.last_name || "empty"}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{ form.first_name || "empty"}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{ form.cnp || "empty"}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{ form.specialization || ""}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{ form.message || "empty"}}
+                  </span>
+                </td>
+                <td>
+                  <span>
+                    {{ form.status || "empty"}}
+                  </span>
+                </td>
+                <td>
+                  <div class="buttons">
+                    <button class="btn btn-primary editable-table-button btn-xs" data-toggle="modal" ng-click="editPaymentModal('app/pages/payments/postalMandate/widgets/editPaymentModal/editPaymentModal.html', 'lg', payment)">Evaluează</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="11" class="text-center">
+                  <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="10"></div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

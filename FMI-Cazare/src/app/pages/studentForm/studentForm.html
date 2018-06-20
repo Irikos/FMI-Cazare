@@ -1,0 +1,104 @@
+﻿<div class="widgets">
+
+  <div class="row">
+    <div class="col-md-12">
+      <div ba-panel ba-panel-class="with-scroll">
+        <ba-wizard>
+
+          <ba-wizard-step title="Informa&#355;ii personale" form="vm.personalInfoForm">
+            <form name="vm.personalInfoForm">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleUsername1">Nume</label>
+                    <input type="text" class="form-control" id="exampleUsername1" name="username" placeholder="Nume" ng-model="student.last_name" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" ng-model="student.email" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Serie CI</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.ic_serie" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Locul nașterii</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.birth_place" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Prenumele tatălui</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.father_first_name" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Specializarea</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.specialization" disabled>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Prenume</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Prenume" ng-model="student.first_name" disabled>
+                    <span class="help-block error-block basic-block">Required</span>
+                  </div>
+                  <div class="form-group" ng-class="{'has-error': student.cnp.$dirty || student.cnp.$submitted}">
+                    <label for="exampleInputConfirmPassword1">CNP</label>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword1" name="confirmPassword" placeholder="CNP" ng-model="student.cnp" disabled>
+                    <span class="help-block error-block basic-block">Passwords should match</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Num&#259;r CI</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Num&#259;r CI" ng-model="student.ic_number" disabled>
+                    <span class="help-block error-block basic-block">Proper email required</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Adresa</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.address" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Prenumele mamei</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.mother_first_name" disabled>
+                  </div>
+                  <div class="form-group">
+                    <label for="serieIc">Anul de studiu</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.year" disabled>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </ba-wizard-step>
+
+          <ba-wizard-step title="Detalii de cazare" form="vm.accomodationDetailsForm">
+            <form name="vm.accomodationDetailsForm" novalidate>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group has-feedback">
+                    <label for="productName">Preferințele de cămin</label>
+                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Product name" ng-model="vm.productInfo.productName" required>
+                    <span class="help-block error-block basic-block">Required</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="productId">Product id</label>
+                    <input type="text" class="form-control" id="productId" name="productId" placeholder="productId" ng-model="vm.productInfo.productId" required>
+                    <span class="help-block error-block basic-block">Required</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="productName">Category</label>
+                    <select class="form-control" title="Category" selectpicker>
+                      <option selected>Electronics</option>
+                      <option>Toys</option>
+                      <option>Accessories</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </ba-wizard-step>
+
+        </ba-wizard>
+      </div>
+    </div>
+  </div>
+
+</div>

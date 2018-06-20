@@ -11,11 +11,15 @@
     'FMI-Cazare.pages.dashboard',
     'FMI-Cazare.pages.session',
     'FMI-Cazare.pages.profile',
+    'FMI-Cazare.pages.timelineStudent',
+    'FMI-Cazare.pages.studentForm',
+    'FMI-Cazare.pages.managementTable',
   ])
       .config(routeConfig);
 
   /** @ngInject */
-  function routeConfig($urlRouterProvider, baSidebarServiceProvider) {
+  function routeConfig($urlRouterProvider, $locationProvider, baSidebarServiceProvider) {
+    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/dashboard');
   }
 
