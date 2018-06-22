@@ -194,13 +194,13 @@
 
     $scope.addDormCategory = function () {
       var categoryId = $scope.dormCategories.length ? $scope.dormCategories[$scope.dormCategories.length - 1].categoryId + 1 : 1;
-      var newCategory = {
+      $scope.newCategory = {
         "categoryId": categoryId,
         "name": null,
         "value": null,
         "description": null
       };
-      $scope.dormCategories.push(newCategory);
+      $scope.dormCategories.push($scope.newCategory);
     }
 
     $scope.removeDormCategory = function (dormCategory) {
@@ -220,12 +220,12 @@
 
     $scope.addDorm = function () {
       var dormId = $scope.dorms.length? $scope.dorms[$scope.dorms.length - 1].dormId + 1 : 1;
-      var newDorm = {
+      $scope.newDorm = {
         "dormId": dormId,
         "name": null,
         "dormCategoryId": null
       }
-      $scope.dorms.push(newDorm);
+      $scope.dorms.push($scope.newDorm);
     }
 
     $scope.removeDorm = function (dorm) {
@@ -240,14 +240,14 @@
 
     $scope.addRoom = function (dorm) {
       var roomId = $scope.rooms.length ? $scope.rooms[$scope.rooms.length - 1].roomId + 1 : 1;
-      var newRoom = {
+      $scope.newRoom = {
         "roomId": roomId,
         "roomNumber": null,
         "size": null,
         "dormId": dorm.dormId,
         "sex": null,
       }
-      $scope.rooms.push(newRoom);
+      $scope.rooms.push($scope.newRoom);
     }
 
     /*  check if:
@@ -291,9 +291,6 @@
         $scope.bulkAddRooms(data.startNumber, data.endNumber, data.sex, data.size, data.dormId);
       });
     };
-
-
-    
 
   };
 

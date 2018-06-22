@@ -1,15 +1,15 @@
 ﻿(function () {
   'use strict';
 
-  angular.module('FMI-Cazare.pages.timelineStudent', [])
+  angular.module('FMI-Cazare.pages.studentTimeline', [])
     .config(routeConfig);
 
   function routeConfig($stateProvider) {
     $stateProvider
-      .state('timelineStudent', {
-        url: '/timelineStudent',
-        templateUrl: 'app/pages/timelineStudent/timelineStudent.html',
-        controller: 'TimelineStudentCtrl',
+      .state('studentTimeline', {
+        url: '/studentTimeline',
+        templateUrl: 'app/pages/studentTimeline/studentTimeline.html',
+        controller: 'StudentTimelineCtrl',
         controllerAs: 'vm',
         title: 'Timeline',
         sidebarMeta: {

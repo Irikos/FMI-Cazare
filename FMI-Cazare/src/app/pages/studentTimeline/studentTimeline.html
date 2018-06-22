@@ -18,7 +18,7 @@
       </div>
     </div>-->
 
-    <div class="cd-timeline-block">
+    <!--<div class="cd-timeline-block">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Party-Poppers' | kameleonImg )}}"></div>
       </div>
@@ -42,14 +42,14 @@
         </p>
         <span class="cd-date"><span style="font-weight: bold;">Trimisă la:</span> {{formatDate(form.date)}}</span>
       </div>
-    </div>
+    </div>-->
 
     <div class="cd-timeline-block">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Student-3' | kameleonImg )}}"></div>
       </div>
       <div class="cd-timeline-content primary">
-        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="createForm();" ng-if="form.status == 'netrimis'">
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="goToForm();" ng-if="form.status == 'netrimis'">
           <i class="fa fa-plus-square-o"></i>
           Creează cerere de cazare
         </button>
@@ -62,25 +62,6 @@
     </div>
 
 
-    <div ng-repeat="backup in backups" class="cd-timeline-block">
-      <div class="cd-timeline-img">
-        <div class="kameleon-icon"><img ng-src="{{::( 'Backup' | kameleonImg )}}"></div>
-      </div>
-      <div class="cd-timeline-content primary">
-        <button type="button" class="btn btn-danger btn-with-icon pull-right backup-buttons-margin" ng-click="deleteBackup(backup, $index);">
-          <i class="fa fa-trash"></i>
-          Delete
-        </button>
-        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="restoreBackup(backup);">
-          <i class="fa fa-cloud-download"></i>
-          Restore
-        </button>
-        <h5>{{backup.description}}</h5>
-        <p>
-          {{backup.filename}}
-        </p>
-        <span class="cd-date">{{formatDate(backup.createdDate)}}</span>
-      </div>
-    </div>
+    
   </section>
 </div>

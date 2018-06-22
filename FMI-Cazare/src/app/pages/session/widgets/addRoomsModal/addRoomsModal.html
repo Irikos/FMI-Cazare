@@ -1,4 +1,4 @@
-﻿<div class="modal-content">
+﻿<!--<div class="modal-content">
   <div class="modal-header">
     <button type="button" class="close" ng-click="cancel()" aria-label="Close">
       <em class="ion-ios-close-empty sn-link-close"></em>
@@ -22,5 +22,64 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" ng-click="ok(data)">Salveaz&#259;</button>
+  </div>
+</div>-->
+
+
+<div class="modal-content white-text">
+  <div class="modal-body">
+    <div ba-panel
+         ba-panel-title="Cererea studentului"
+         ba-panel-class="with-scroll">
+      <div>
+        <form editable-form name="rowform" class="form-horizontal" ng-show="rowform.$visible" shown="true">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group row">
+                <label for="startNumber" class="col-xs-12">Num&#259;r de &#238;nceput</label>
+                <div class="col-xs-12">
+                  <input ng-model="data.startNumber" type="number" class="form-control" id="startNumber" placeholder="Num&#259;r de &#238;nceput" e-form="rowform" e-name="startNumber">
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group row">
+                <label for="endNumber" class="col-xs-12">Num&#259;r de sf&#226;r&#351;it:</label>
+                <div class="col-xs-12">
+                  <input ng-model="data.endNumber" type="number" class="form-control" id="endNumber" placeholder="Num&#259;r de sf&#226;r&#351;it" e-form="rowform" e-name="endNumber">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group row">
+                <label for="sex" class="col-xs-12">Sex:</label>
+                <div class="col-xs-12">
+                  <select class="input-sm form-control" name="sex" ng-model="data.sex">
+                    <option value="M" style="color:black;">Masculin</option>
+                    <option value="F" style="color:black;">Feminin</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-group row">
+                <label for="size" class="col-xs-12">Num&#259;r de persoane</label>
+                <div class="col-xs-12">
+                  <input ng-model="data.size" type="number" class="form-control" id="size" placeholder="Num&#259;r de persoane" e-form="rowform" e-name="size">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer form-group col-xs-12">
+            <button type="submit" class="btn btn-success" ng-click="ok(data)">Salveaz&#259;</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
