@@ -1,21 +1,24 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 namespace FMI_Cazare.Models
 {
-    public class DormCategoryModel
+    public class DocumentModel
     {
         [Key]
-        public long DormCategoryId { get; set; }
+        public long DocumentId { get; set; }
 
         [Required]
-        public long SessionId { get; set; }
+        public long FormId { get; set; }
 
-        [ForeignKey("SessionId")]
-        public SessionModel Session { get; set; }
+        [ForeignKey("FormId")]
+        public FormModel Form { get; set; }
 
-        [Required]
         public string Name { get; set; }
+
+        public string Link { get; set; }
 
         public DateTime DateCreated { get; set; }
 

@@ -8,8 +8,8 @@
 
     var service = {};
 
-    service.Login = function (username, password, callback) {
-      $http.post('/api/Auth', { username: username, password: password })
+    service.Login = function (email, password, callback) {
+      $http.post('/api/Auth', { email: email, password: password })
         .then(function (response) {
           if (response.data.token) {
             $localStorage.token = response.data.token;

@@ -1,20 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FMI_Cazare.Models
 {
-    public class Room
+    public class RoomModel
     {
         [Key]
         public long RoomId { get; set; }
 
-        [ForeignKey("DormId")]
+        [Required]
         public long DormId { get; set; }
+
+        [ForeignKey("DormId")]
+        public DormModel Dorm { get; set; }
 
         [Required]
         public string RoomNumber { get; set; }
@@ -33,13 +33,10 @@ namespace FMI_Cazare.Models
         [Required]
         public bool HasBathroom { get; set; }
 
-        [Required]
         public DateTime DateCreated { get; set; }
 
-        [Required]
         public DateTime DateModified { get; set; }
 
-        [Required]
         public DateTime DateDeleted { get; set; }
     }
 }

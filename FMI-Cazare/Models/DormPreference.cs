@@ -1,27 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FMI_Cazare.Models
 {
-    public class DormModel
+    public class DormPreferenceModel
     {
         [Key]
+        public long DormPreferenceId { get; set; }
+
+        [Required]
+        public long FormId { get; set; }
+
+        [ForeignKey("FormId")]
+        public FormModel Form { get; set; }
+
+        [Required]
         public long DormId { get; set; }
 
-        [Required]
-        public long DormCategoryId { get; set; }
+        [ForeignKey("DormId")]
+        public DormModel Dorm { get; set; }
 
-        [ForeignKey("DormCategoryId")]
-        public DormCategoryModel DormCategory { get; set; }
+        public int Value { get; set; }
 
-        [Required]
-        public string Name { get; set; }
-        
         public DateTime DateCreated { get; set; }
 
         public DateTime DateModified { get; set; }
