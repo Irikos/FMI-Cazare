@@ -28,7 +28,7 @@ namespace FMI_Cazare.Models
         [ForeignKey("ReceiverId")]
         public UserModel Receiver { get; set; }
 
-        public enum NotificationType { Unknown = 0 }
+        public enum NotificationType : byte { Unknown = 0 }
 
         [DefaultValue(NotificationType.Unknown)]
         public NotificationType Type { get; set; }

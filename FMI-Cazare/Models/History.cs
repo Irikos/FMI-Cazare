@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FMI_Cazare.Models
 {
-    public class RoomatePreferenceModel
+    public class HistoryModel
     {
         [Key]
-        public long RoommatePreferenceId { get; set; }
+        public long HistoryId { get; set; }
 
         [Required]
         public long UserId { get; set; }
@@ -17,18 +17,16 @@ namespace FMI_Cazare.Models
         public UserModel User { get; set; }
 
         [Required]
-        public long FormId { get; set; }
+        public long SessionId { get; set; }
 
-        [ForeignKey("FormId")]
-        public FormModel Form { get; set; }
-
-        [Required]
-        public long StudentId { get; set; }
-
-        [ForeignKey("StudentId")]
-        public UserModel Student { get; set; }
+        [ForeignKey("SessionId")]
+        public SessionModel Session { get; set; }
         
-        public int Priority { get; set; }
+        public string DormCode { get; set; }
+
+        public string RoomCode { get; set; }
+
+        public string SpotCode { get; set; }
 
         public DateTime DateCreated { get; set; }
 

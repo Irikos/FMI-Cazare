@@ -43,7 +43,7 @@ namespace FMI_Cazare.Controllers
             IActionResult response = Unauthorized();
 
             UserModel user = await _context.Users.SingleOrDefaultAsync(m =>
-                m.Username.ToUpper() == credentials.Username.ToUpper() &&
+                m.Email.ToUpper() == credentials.Username.ToUpper() &&
                 m.PasswordHash == ComputeHash(credentials.Password));
 
             if (user != null)
