@@ -11,56 +11,56 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleUsername1">Nume</label>
-                    <input type="text" class="form-control" id="exampleUsername1" name="username" placeholder="Nume" ng-model="student.lastName" disabled>
+                    <input type="text" class="form-control" id="exampleUsername1" name="username" placeholder="Nume" ng-model="student.user.lastName" disabled>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" ng-model="student.email" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Email" ng-model="student.user.email" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Serie CI</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.icSerie" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.icSerie" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Locul nașterii</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.birthPlace" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.birthPlace" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Prenumele tatălui</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.fatherFirstName" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.fatherFirstName" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Specializarea</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.specialization" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.specialization" disabled>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleInputPassword1">Prenume</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Prenume" ng-model="student.firstName" disabled>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="password" placeholder="Prenume" ng-model="student.user.firstName" disabled>
                     <span class="help-block error-block basic-block">Required</span>
                   </div>
-                  <div class="form-group" ng-class="{'has-error': student.cnp.$dirty || student.cnp.$submitted}">
+                  <div class="form-group" ng-class="{'has-error': student.user.cnp.$dirty || student.user.cnp.$submitted}">
                     <label for="exampleInputConfirmPassword1">CNP</label>
-                    <input type="text" class="form-control" id="exampleInputConfirmPassword1" name="confirmPassword" placeholder="CNP" ng-model="student.cnp" disabled>
+                    <input type="text" class="form-control" id="exampleInputConfirmPassword1" name="confirmPassword" placeholder="CNP" ng-model="student.user.cnp" disabled>
                     <span class="help-block error-block basic-block">Passwords should match</span>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Num&#259;r CI</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Num&#259;r CI" ng-model="student.icNumber" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Num&#259;r CI" ng-model="student.user.icNumber" disabled>
                     <span class="help-block error-block basic-block">Proper email required</span>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Adresa</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.address" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.address" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Prenumele mamei</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.motherFirstName" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.motherFirstName" disabled>
                   </div>
                   <div class="form-group">
                     <label for="serieIc">Anul de studiu</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.year" disabled>
+                    <input type="text" class="form-control" id="exampleInputEmail1" name="email" placeholder="Serie CI" ng-model="student.user.year" disabled>
                   </div>
                 </div>
               </div>
@@ -75,19 +75,18 @@
                     <div class="form-group">
                       <label for="productName">Preferințele de cămin</label>
                       <select class="form-control" title="Dorms" selectpicker ng-model="vm.newOption">
-                        <option ng-repeat="dorm in dorms">{{dorm.name}}</option>
+                        <option ng-repeat="dorm in dorms" value="{{dorm}}">{{dorm.name}}</option>
                       </select>
                     </div>
-
                     <i ng-click="addDormOption('',true)" class="add-item-icon ion-plus-round"></i>
                     <div class="box-shadow-border"></div>
-                    <ul class="todo-list" ui-sortable ng-model="dormOptions">
-                      <li ng-repeat="item in dormOptions" ng-if="!item.deleted" ng-init="activeItem=false"
+                    <ul class="todo-list" ui-sortable ng-model="student.dormPreferences">
+                      <li ng-repeat="item in student.dormPreferences" ng-if="!item.deleted" ng-init="activeItem=false"
                           ng-class="{checked: isChecked, active: activeItem}"
                           ng-mouseenter="activeItem=true" ng-mouseleave="activeItem=false">
                         <div class="blur-container"><div class="blur-box"></div></div>
                         <label>
-                          <span class="cut-with-dots">Opțiunea {{$index + 1}}: {{ item.name }}</span>
+                          <span class="cut-with-dots">Opțiunea {{$index + 1}}: {{ item.dorm.name }}</span>
                         </label>
                         <i class="remove-todo ion-ios-close-empty" ng-click="deleteOption(item)"></i>
                       </li>
@@ -121,11 +120,11 @@
                   <div class="row">
                     <div class="form-group has-feedback col-xs-6">
                       <label for="socialIncome">Venitul lunar (RON)</label>
-                      <input type="number" class="form-control" name="socialIncome" placeholder="Venitul lunar pe membru al familiei" ng-model="student.socialIncome" ng-disabled="student.social == false">
+                      <input type="number" class="form-control" name="socialIncome" placeholder="Venitul lunar pe membru al familiei" ng-model="student.socialPoints" ng-disabled="!student.isSocial">
                     </div>
                     <div class="col-xs-6">
                       <label class="checkbox-inline custom-checkbox nowrap">
-                        <input type="checkbox" ng-model="student.social">
+                        <input type="checkbox" ng-model="student.isSocial">
                         <span>Caz social</span>
                       </label>
                     </div>
@@ -134,11 +133,11 @@
                   <div class="row">
                     <div class="form-group has-feedback col-xs-6">
                       <label for="socialIncome">Căminul precedent</label>
-                      <input type="text" class="form-control" name="socialIncome" placeholder="Căminul în care ați stat anul trecut" ng-model="student.lastDorm" ng-disabled="student.continuity == false">
+                      <input type="text" class="form-control" name="socialIncome" placeholder="Căminul în care ați stat anul trecut" ng-model="student.score" ng-disabled="!student.isContinuity">
                     </div>
                     <div class="col-xs-6">
                       <label class="checkbox-inline custom-checkbox nowrap">
-                        <input type="checkbox" ng-model="student.continuity">
+                        <input type="checkbox" ng-model="student.isContinuity">
                         <span>Continuitate</span>
                       </label>
                     </div>
@@ -148,7 +147,7 @@
                 <div class="col-md-3 col-xs-12">
                   <div class="form-group has-feedback">
                     <label>Mesaj pentru secretariat</label>
-                    <textarea class="form-control" ng-model="student.description" placeholder="Mesaj pentru secretariat..."></textarea>
+                    <textarea class="form-control" ng-model="student.observations" placeholder="Mesaj pentru secretariat..."></textarea>
                   </div>
                 </div>
               </div>

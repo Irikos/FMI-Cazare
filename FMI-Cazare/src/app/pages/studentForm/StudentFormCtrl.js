@@ -1,109 +1,119 @@
 ﻿(function () {
-    'use strict';
+  'use strict';
 
-    angular.module('FMI-Cazare.pages.studentForm')
-        .controller('StudentFormCtrl', StudentFormCtrl);
+  angular.module('FMI-Cazare.pages.studentForm')
+    .controller('StudentFormCtrl', StudentFormCtrl);
 
-    function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter, $state, Dorms) {
-        editableOptions.theme = 'bs3';
-        editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
-        editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
+  function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter, $state, Dorms, Forms, Users) {
+    editableOptions.theme = 'bs3';
+    editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
+    editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
 
-        var vm = this;
-        $scope.test = "Hello, world!";
+    var vm = this;
+    $scope.test = "Hello, world!";
 
-        $scope.student = {
-            "lastName": "Doe",
-            "firstName": "John",
-            "cnp": "1900121765292",
-            "icSerie": "TM",
-            "icNumber": "050949",
-            "birthPlace": "Cluj-Napoca",
-            "address": "Magheru 4",
-            "fatherFirstName": "Vasile",
-            "motherFirstName": "Lenuta",
-            "email": "john.doe@fmi.unibuc.ro",
-            "specialization": "Informatică",
-            "year": "2",
-            "gender": "masculin",
-            "role": "student",
-            "social": false,
-            "socialincome": "",
-            "continuity": false,
-            "lastDorm": ""
-        };
+    $scope.student = {};
+    $scope.student = Forms.get({ id: 1 }, function () {
+      if ($scope.student.user == undefined)
+        $scope.student.user = Users.get({ id: 1 }, function () {
 
-        $scope.transparent = baConfig.theme.blur;
-
-
-        $scope.dorms = Dorms.query(function (a) {
-            console.log(a);
+          if ($scope.student.dormPreferences)
+            $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
+          $scope.dorms = Dorms.query(function (a) {
+            if ($scope.student.dormPreferences)
+              $scope.dorms = $scope.dorms.filter(d => $scope.student.dormPreferences.find(dormP => dormP.dormId == d.dormId) == null)
+          });
         });
+      else {
+        if ($scope.student.dormPreferences)
+          $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
+        $scope.dorms = Dorms.query(function (a) {
+          if ($scope.student.dormPreferences)
+            $scope.dorms = $scope.dorms.filter(d => $scope.student.dormPreferences.find(dormP => dormP.dormId == d.dormId) == null)
+        });
+      }
+    });
 
-        $scope.colleagueOptions = [];
-
-        $scope.dormOptions = [];
-
-        $scope.newOption = '';
-
-        $scope.addDormOption = function (event, clickPlus) {
-            if (vm.newOption == undefined) {
-                toastr.error("Nu ati selectat niciun camin");
-            }
-            else {
-                if (clickPlus || event.which === 13) {
-                    var obj = $filter('filter')($scope.dorms, { name: vm.newOption }, true)[0];
-                    var index = $scope.dorms.indexOf(obj);
-                    if (index == -1) {
-                        toastr.error("Nu ati selectat niciun camin");
-                    }
-                    else {
-                        $scope.dormOptions.unshift({
-                            name: vm.newOption,
-                        });
-                        $scope.dorms.splice(index, 1);
-                        $scope.newOption = '';
-                    }
-                }
-            }
-        };
+    $scope.transparent = baConfig.theme.blur;
 
 
-        $scope.deleteOption = function (option) {
-            var index = $scope.dormOptions.indexOf(option);
-            $scope.dormOptions.splice(index, 1);
-            $scope.dorms.push(option);
-        };
 
-        $scope.addColleague = function (event, clickPlus) {
-            if (clickPlus || event.which === 13) {
-                $scope.colleagueOptions.push({
-                    name: vm.newColleague,
-                });
-                $scope.newColleague = '';
-            }
-        };
 
-        $scope.deleteColleague = function (option) {
-            var index = $scope.colleagueOptions.indexOf(option);
-            $scope.colleagueOptions.splice(index, 1);
-        };
+    $scope.colleagueOptions = [];
 
-        $scope.test = function () {
-            debugger;
-            alert($scope.dorms);
-            alert($scope.dormOptions);
+    $scope.dormOptions = [];
+
+    $scope.newOption = '';
+
+    $scope.addDormOption = function (event, clickPlus) {
+      if (vm.newOption == undefined) {
+        toastr.error("Nu ati selectat niciun camin");
+      }
+      else {
+        if (clickPlus || event.which === 13) {
+          var parsedDorm = JSON.parse(vm.newOption);
+          var obj = $filter('filter')($scope.dorms, { name: parsedDorm.name }, true)[0];
+          var index = $scope.dorms.indexOf(obj);
+          if (index == -1) {
+            toastr.error("Nu ati selectat niciun camin");
+          }
+          else {
+            if ($scope.student.dormPreferences == undefined)
+              $scope.student.dormPreferences = [];
+            $scope.student.dormPreferences.unshift({
+              dorm: parsedDorm,
+              dormId: parsedDorm.dormId
+            });
+            $scope.dorms.splice(index, 1);
+            $scope.newOption = '';
+          }
         }
+      }
+    };
 
-        $scope.saveForm = function () {
-            toastr.info("Cererea a fost salvată.");
-            $state.go("studentTimeline");
-        };
 
-        $scope.sendForm = function () {
-            toastr.success("Cererea a fost trimisă către secretariat.");
-            $state.go("studentTimeline");
-        };
+    $scope.deleteOption = function (option) {
+      var index = $scope.dormOptions.indexOf(option);
+      $scope.dormOptions.splice(index, 1);
+      $scope.dorms.push(option);
+    };
 
+    $scope.addColleague = function (event, clickPlus) {
+      if (clickPlus || event.which === 13) {
+        $scope.colleagueOptions.push({
+          name: vm.newColleague,
+        });
+        $scope.newColleague = '';
+      }
+    };
+
+    $scope.deleteColleague = function (option) {
+      var index = $scope.colleagueOptions.indexOf(option);
+      $scope.colleagueOptions.splice(index, 1);
+    };
+
+    $scope.test = function () {
+      debugger;
+      alert($scope.dorms);
+      alert($scope.dormOptions);
     }
+
+    $scope.saveForm = function () {
+      $scope.student.state = 1;
+      Forms.save($scope.student, function () {
+        toastr.info("Cererea a fost salvată.");
+        $state.go("studentTimeline");
+      });
+    };
+
+    $scope.sendForm = function () {
+      $scope.student.state = 2;
+      Forms.save($scope.student, function () {
+        toastr.success("Cererea a fost trimisă către secretariat.");
+        $state.go("studentTimeline");
+      });
+
+    };
+
+  }
 })();

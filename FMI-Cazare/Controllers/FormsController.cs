@@ -37,7 +37,12 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var formModel = await _context.Forms.SingleOrDefaultAsync(m => m.FormId == id);
+            var formModel = await _context.Forms
+                .Include(f => f.User)
+                .Include(f => f.RoomatePreferences)
+                .Include(f => f.DormPreferences)
+                 .ThenInclude(d => d.Dorm)
+                .SingleOrDefaultAsync(m => m.UserId == id);
 
             if (formModel == null)
             {
@@ -91,7 +96,34 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Forms.Add(formModel);
+            var i = 0;
+            formModel.DormPreferences.ToList().ForEach(d =>
+            {
+                d.Priority = i;
+                i++;
+                d.Dorm = null;
+                if (d.DormPreferenceId == 0)
+                    _context.Entry(d).State = EntityState.Added;
+                else
+                    _context.Entry(d).State = EntityState.Modified;
+            });
+    
+
+            formModel.Session = null;
+            formModel.User = null;
+
+            formModel.SessionId = 1;
+            formModel.UserId = 1;
+
+            if (formModel.FormId == 0)
+                _context.Forms.Add(formModel);
+            else
+            {
+
+                _context.Entry(formModel).State = EntityState.Modified;
+            }
+
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFormModel", new { id = formModel.FormId }, formModel);

@@ -16,8 +16,6 @@ namespace FMI_Cazare.Models
         [ForeignKey("DormId")]
         public DormModel Dorm { get; set; }
 
-        public int Value { get; set; }
-
         public int Priority { get; set; }
 
         public DateTime DateCreated { get; set; }
