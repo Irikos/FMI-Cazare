@@ -9,9 +9,20 @@
     .controller('BaSidebarCtrl', BaSidebarCtrl);
 
   /** @ngInject */
-  function BaSidebarCtrl($scope, baSidebarService) {
+  function BaSidebarCtrl($scope, baSidebarService, Auth) {
 
     $scope.menuItems = baSidebarService.getMenuItems();
+    if (document.currentUser.role == 1) {
+      $scope.menuItems = $scope.menuItems.slice(0, 2);
+    }
+    else if (document.currentUser.role == 2) {
+      $scope.menuItems.splice(1, 3);
+    }
+    else if (document.currentUser.role == 3) {
+      $scope.menuItems.splice(1, 1);
+      $scope.menuItems.splice(3, 1);
+    }
+
     $scope.defaultSidebarState = $scope.menuItems[0].stateRef;
 
     $scope.hoverItem = function ($event) {

@@ -14,6 +14,5 @@ angular.module('FMI-Cazare', [
   'angular-progress-button-styles',
   'FMI-Cazare.theme',
   'FMI-Cazare.pages',
-  'FMI-Cazare.services',
   'FMI-Cazare.resources',
 ]);

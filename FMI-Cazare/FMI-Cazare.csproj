@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>010a506e-81e7-4b0c-b0ad-cd9ea66bb885</UserSecretsId>
     <AssemblyName>FMI-Cazare</AssemblyName>
     <RootNamespace>FMI_Cazare</RootNamespace>
@@ -32,12 +32,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.0.0-alpha2-final" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.1" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.NodeServices" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.5.0" />
   </ItemGroup>
 
   <ItemGroup>
