@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using FMI_Cazare.Services;
 
 namespace FMI_Cazare
 {
@@ -44,6 +45,9 @@ namespace FMI_Cazare
             services.AddDistributedMemoryCache();
 
             services.AddScoped<ApplicationDbContext>();
+            services.AddScoped<GeneratorService>();
+
+            services.AddNodeServices();
 
             services.AddSession(options =>
             {
