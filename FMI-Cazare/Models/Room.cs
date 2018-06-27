@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,11 +11,14 @@ namespace FMI_Cazare.Models
         [Key]
         public long RoomId { get; set; }
 
-        [Required]
-        public long DormId { get; set; }
+        //[Required]
+        //public long DormId { get; set; }
 
-        [ForeignKey("DormId")]
-        public DormModel Dorm { get; set; }
+        //[ForeignKey("DormId")]
+        //public DormModel Dorm { get; set; }
+
+
+        public IEnumerable<SpotModel> Spots { get; set; }
 
         [Required]
         public string RoomNumber { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace FMI_Cazare.Models
@@ -8,11 +9,13 @@ namespace FMI_Cazare.Models
         [Key]
         public long DormCategoryId { get; set; }
 
-        [Required]
-        public long SessionId { get; set; }
+        //[Required]
+        //public long SessionId { get; set; }
 
-        [ForeignKey("SessionId")]
-        public SessionModel Session { get; set; }
+        //[ForeignKey("SessionId")]
+        //public SessionModel Session { get; set; }
+
+        public IEnumerable<DormModel> Dorms { get; set; }
 
         [Required]
         public string Name { get; set; }

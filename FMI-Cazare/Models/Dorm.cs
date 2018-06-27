@@ -13,11 +13,13 @@ namespace FMI_Cazare.Models
         [Key]
         public long DormId { get; set; }
 
-        [Required]
-        public long DormCategoryId { get; set; }
+        //[Required]
+        //public long DormCategoryId { get; set; }
 
-        [ForeignKey("DormCategoryId")]
-        public DormCategoryModel DormCategory { get; set; }
+        //[ForeignKey("DormCategoryId")]
+        //public DormCategoryModel DormCategory { get; set; }
+
+        public IEnumerable<RoomModel> Rooms { get; set; }
 
         [Required]
         public string Name { get; set; }

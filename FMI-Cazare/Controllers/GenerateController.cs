@@ -49,7 +49,18 @@ namespace FMI_Cazare.Controllers
                     UserId = 1,
                     Email = "admin@fmi.unibuc.ro",
                     PasswordHash = AuthController.ComputeHash("admin"),
-                    Role = UserModel.UserRole.Admin
+                    Role = UserModel.UserRole.Admin,
+                    Cnp = "1922345987292",
+                    FirstName = "Adminus",
+                    LastName = "Optimus",
+                    IcSerie = "VS",
+                    IcNumber = "665577",
+                    BirthPlace = "Vaslui, strada Alcoolului",
+                    FatherFirstName = "Sudo Su",
+                    MotherFirstName = "Emilia",
+                    Specialization = "Informatica",
+                    Year = "3",
+                    Gender = UserModel.UserGender.Male,
                 };
 
                 await _context.Users.AddRangeAsync(
@@ -73,7 +84,18 @@ namespace FMI_Cazare.Controllers
                         UserId = 4,
                         Email = "student@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("student"),
-                        Role = UserModel.UserRole.Student
+                        Role = UserModel.UserRole.Student,
+                        Cnp = "1922345987292",
+                        FirstName = "Studentus",
+                        LastName = "Optimus",
+                        IcSerie = "VS",
+                        IcNumber = "665577",
+                        BirthPlace = "Vaslui, strada Alcoolului",
+                        FatherFirstName = "Sudo Su",
+                        MotherFirstName = "Emilia",
+                        Specialization = "Informatica",
+                        Year = "3",
+                        Gender = UserModel.UserGender.Male,
                     },
                     new UserModel
                     {
@@ -99,45 +121,133 @@ namespace FMI_Cazare.Controllers
                         SessionId = 1,
                         Name = "Princeps",
                         Description = "Prima sesiune de test",
+                        DormCategories = new List<DormCategoryModel>
+                        {
+                            new DormCategoryModel
+                            {
+                                DormCategoryId = 1,
+                                Name = "A",
+                                Dorms = new List<DormModel>
+                                {
+                                    new DormModel
+                                    {
+                                        DormId = 1,
+                                        Name = "Kogalniceanu",
+                                        Rooms = new List<RoomModel>
+                                        {
+                                            new RoomModel
+                                            {
+                                                RoomId = 1,
+                                                RoomNumber = "100",
+                                                Type = RoomModel.RoomType.Masculin,
+                                                Spots = new List<SpotModel>
+                                                {
+                                                }
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 2,
+                                                RoomNumber = "101",
+                                                Type = RoomModel.RoomType.Masculin,
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 3,
+                                                RoomNumber = "102",
+                                                Type = RoomModel.RoomType.Feminin,
+                                            },
+
+                                        }
+                                    },
+                                    new DormModel
+                                    {
+                                        DormId = 2,
+                                        Name = "Grozavesti A1",
+                                        Rooms = new List<RoomModel>
+                                        {
+                                            new RoomModel
+                                            {
+                                                RoomId = 4,
+                                                RoomNumber = "200",
+                                                Type = RoomModel.RoomType.Masculin,
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 5,
+                                                RoomNumber = "201",
+                                                Type = RoomModel.RoomType.Masculin,
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 6,
+                                                RoomNumber = "202",
+                                                Type = RoomModel.RoomType.Feminin,
+                                            },
+
+                                        }
+                                    },
+                                    new DormModel
+                                    {
+                                        DormId = 3,
+                                        Name = "Grozavesti B",
+                                        Rooms = new List<RoomModel>
+                                        {
+                                            new RoomModel
+                                            {
+                                                RoomId = 7,
+                                                RoomNumber = "300",
+                                                Type = RoomModel.RoomType.Masculin,
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 8,
+                                                RoomNumber = "301",
+                                                Type = RoomModel.RoomType.Masculin,
+                                            },
+                                            new RoomModel
+                                            {
+                                                RoomId = 9,
+                                                RoomNumber = "302",
+                                                Type = RoomModel.RoomType.Feminin,
+                                            },
+
+                                        }
+                                    }
+                                }
+
+                            },
+                            new DormCategoryModel
+                            {
+                                DormCategoryId = 2,
+                                Name = "B",
+                                Dorms = new List<DormModel>
+                                {
+                                    new DormModel
+                                    {
+                                        DormId = 4,
+                                        Name = "Grozavesti C",
+                                    },
+                                    new DormModel
+                                    {
+                                        DormId = 5,
+                                        Name = "Grozavesti D",
+                                    },
+                                    new DormModel
+                                    {
+                                        DormId = 6,
+                                        Name = "Grozavesti E",
+                                    }
+                                }
+                            }
+                        }
 
                     }
                 );
 
                 await _context.DormCategories.AddRangeAsync(
-                    new DormCategoryModel
-                    {
-                        DormCategoryId = 1,
-                        SessionId = 1,
-                        Name = "A",
-
-                    },
-                    new DormCategoryModel
-                    {
-                        DormCategoryId = 2,
-                        SessionId = 1,
-                        Name = "B"
-                    }
                 );
 
                 await _context.Dorms.AddRangeAsync(
-                        new DormModel
-                        {
-                            DormId = 1,
-                            DormCategoryId = 1,
-                            Name = "Kogalniceanu",
-                        },
-                        new DormModel
-                        {
-                            DormId = 2,
-                            DormCategoryId = 1,
-                            Name = "Grozavesti A1",
-                        },
-                        new DormModel
-                        {
-                            DormId = 3,
-                            DormCategoryId = 2,
-                            Name = "Grozavesti B",
-                        }
                     );
 
                 await _context.Forms.AddRangeAsync(
