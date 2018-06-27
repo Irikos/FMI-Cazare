@@ -38,12 +38,12 @@
               document.location = "/";
               break;
             case 401:
-              document.getElementById("message").innerHTML = "&nbsp;&nbsp;&nbsp;Invalid email/password.";
+              document.getElementById("message").innerHTML = "&nbsp;&nbsp;&nbsp;Email sau parolĂ invalide.";
               document.getElementById("submit").innerText = "Sign in";
               document.getElementById("submit").removeAttribute("disabled");
               break;
             default:
-              document.getElementById("message").innerHTML = "&nbsp;&nbsp;&nbsp;Server unreachable.";
+              document.getElementById("message").innerHTML = "&nbsp;&nbsp;&nbsp;Server indisponibil.";
               document.getElementById("submit").innerText = "Sign in";
               document.getElementById("submit").removeAttribute("disabled");
           }
@@ -60,25 +60,25 @@
 <body>
   <main class="auth-main" id="main">
     <div class="auth-block">
-      <h1>Sign in to FMI-Cazare</h1>
+      <h1>FMI-Cazare sign in</h1>
       <form class="form-horizontal" onsubmit="return login()">
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" name="email" value="user@example.com" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="email" value="admin@fmi.unibuc.ro" placeholder="Email">
           </div>
         </div>
         <div class="form-group">
           <label for="password" class="col-sm-2 control-label">Password</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="password" name="password" value="1234" placeholder="Password">
+            <input type="password" class="form-control" id="password" name="password" value="admin" placeholder="Password">
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default btn-auth" id="submit">Sign in</button>
             <span id="message"></span>
-            <a href="forgot" class="forgot-pass">Forgot password?</a>
+            <a href="forgot" class="forgot-pass">Ai uitat?</a>
           </div>
         </div>
       </form>

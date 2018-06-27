@@ -6,13 +6,14 @@
   'use strict';
 
   angular.module('FMI-Cazare.theme.components')
-      .directive('pageTop', pageTop);
+    .directive('pageTop', pageTop);
 
   /** @ngInject */
   function pageTop() {
     return {
       restrict: 'E',
-      templateUrl: 'app/theme/components/pageTop/pageTop.html'
+      templateUrl: 'app/theme/components/pageTop/pageTop.html',
+      controller: 'PageTopCtrl'
     };
   }
 
