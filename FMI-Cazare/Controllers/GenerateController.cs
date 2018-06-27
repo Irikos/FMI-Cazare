@@ -91,51 +91,15 @@ namespace FMI_Cazare.Controllers
                     }
                 );
 
-                await _context.Forms.AddRangeAsync(
-                    new FormModel
+
+
+                await _context.Sessions.AddRangeAsync(
+                    new SessionModel
                     {
-                        FormId = 1,
                         SessionId = 1,
-                        UserId = 4,
-                        State = FormModel.FormState.Saved,
-                        IsContinuity = false,
-                        IsSocial = true
-                    }
-                );
+                        Name = "Princeps",
+                        Description = "Prima sesiune de test",
 
-                await _context.DormPreferences.AddRangeAsync(
-                    new DormPreferenceModel
-                    {
-                        DormPreferenceId = 1,
-                        DormId = 1,
-                        Priority = 1,
-                    }
-                );
-
-                await _context.DormPreferences.AddRangeAsync(
-                    new DormPreferenceModel
-                    {
-                        DormPreferenceId = 1,
-                        DormId = 2,
-                        Priority = 2,
-                    }
-                );
-
-                await _context.DormPreferences.AddRangeAsync(
-                    new DormPreferenceModel
-                    {
-                        DormPreferenceId = 2,
-                        DormId = 3,
-                        Priority = 3,
-                    }
-                );
-           
-                await _context.RoomatePreferences.AddRangeAsync(
-                    new RoomatePreferenceModel
-                    {
-                        RoommatePreferenceId = 2,
-                        StudentId = 5,
-                        Priority = 1,
                     }
                 );
 
@@ -156,25 +120,116 @@ namespace FMI_Cazare.Controllers
                 );
 
                 await _context.Dorms.AddRangeAsync(
-                    new DormModel
+                        new DormModel
+                        {
+                            DormId = 1,
+                            DormCategoryId = 1,
+                            Name = "Kogalniceanu",
+                        },
+                        new DormModel
+                        {
+                            DormId = 2,
+                            DormCategoryId = 1,
+                            Name = "Grozavesti A1",
+                        },
+                        new DormModel
+                        {
+                            DormId = 3,
+                            DormCategoryId = 2,
+                            Name = "Grozavesti B",
+                        }
+                    );
+
+                await _context.Forms.AddRangeAsync(
+                    new FormModel
                     {
-                        DormId = 1,
-                        DormCategoryId = 1,
-                        Name = "Kogalniceanu",
-                    },
-                    new DormModel
-                    {
-                        DormId = 2,
-                        DormCategoryId = 1,
-                        Name = "Grozavesti A1",
-                    },
-                    new DormModel
-                    {
-                        DormId = 3,
-                        DormCategoryId = 2,
-                        Name = "Grozavesti B",
+                        FormId = 1,
+                        SessionId = 1,
+                        UserId = 4,
+                        State = FormModel.FormState.Saved,
+                        IsContinuity = false,
+                        IsSocial = true
                     }
                 );
+
+                await _context.Forms.AddRangeAsync(
+                    new FormModel
+                    {
+                        FormId = 2,
+                        SessionId = 1,
+                        UserId = 5,
+                        State = FormModel.FormState.Sent,
+                        IsContinuity = true,
+                        IsSocial = true,
+                        DormPreferences = new List<DormPreferenceModel>
+                        {
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 1,
+                                DormId = 1,
+                                Priority = 1,
+                            },
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 2,
+                                DormId = 2,
+                                Priority = 2,
+                            },
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 3,
+                                DormId = 3,
+                                Priority = 3,
+                            }
+                        }
+                    }
+                );
+
+                await _context.Forms.AddRangeAsync(
+                    new FormModel
+                    {
+                        FormId = 3,
+                        SessionId = 1,
+                        UserId = 6,
+                        State = FormModel.FormState.Approved,
+                        IsContinuity = true,
+                        IsSocial = false,
+                        DormPreferences = new List<DormPreferenceModel>
+                        {
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 4,
+                                DormId = 1,
+                                Priority = 1,
+                            },
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 5,
+                                DormId = 2,
+                                Priority = 2,
+                            },
+                            new DormPreferenceModel
+                            {
+                                DormPreferenceId = 6,
+                                DormId = 3,
+                                Priority = 3,
+                            }
+                        }
+                    }
+                );
+
+                await _context.RoomatePreferences.AddRangeAsync(
+                    new RoomatePreferenceModel
+                    {
+                        RoommatePreferenceId = 2,
+                        StudentId = 5,
+                        Priority = 1,
+                    }
+                );
+
+
+
+
                 //var studentId = _context.Users.FirstOrDefault(m => m.Email == "student@fmi.unibuc.ro").UserId;
 
 
