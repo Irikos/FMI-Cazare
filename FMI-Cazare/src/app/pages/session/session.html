@@ -173,7 +173,7 @@
 
             <form class="form-horizontal" name="vm.finishForm">
               <div class="row">
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-6 col-xs-12">
                   <div ba-panel ba-panel-title="Date sesiune" ba-panel-class="with-scroll">
                     <div class="row">
                       <div class="col-xs-2">
@@ -204,7 +204,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-8 col-xs-12">
+                <div class="col-md-6 col-xs-12">
                   <div ba-panel ba-panel-title="Camine" ba-panel-class="with-scroll tree-panel">
                     <div class="row">
                       <div class="col-sm-4">
@@ -221,7 +221,9 @@
                         </div>
                       </div>
                       <div class="col-sm-8">
-                        <div js-tree="basicConfig" ng-model="treeData" should-apply="applyModelChanges()" tree="basicTree" tree-events="ready:readyCB"></div>
+                        <div ng-repeat="tree in filteredByCategory track by $index" style="display: inline-block; vertical-align:top;">
+                          <div js-tree="basicConfig" ng-model="tree" should-apply="applyModelChanges()" tree="basicTree" tree-events="ready:readyCB"></div>
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -14,9 +14,10 @@
     $scope.safeCopyRooms = $scope.rooms;
     $scope.dates;
     $scope.session = {
-      "status": "saved",
+      "status": "începută",
     };
     $scope.session.startDate = null;
+    $scope.filteredByCategory = [];
 
 
     var newId = 0;
@@ -69,10 +70,54 @@
       });
     };
 
-    $scope.applyModelChanges = function() {
+    $scope.applyModelChanges = function () {
       return !$scope.ignoreChanges;
     };
+    $scope.filterByCategory = function () {
+      var data = [];
 
+      angular.forEach($scope.dormCategories, function (category, key) {
+        var categoryes = [];
+        categoryes.push({
+          "id": "cat" + category.categoryId,
+          "parent": "#",
+          "text": category.name,
+          "icon": "fa fa-cubes",
+          "state": {
+            "opened": true
+          }
+        });
+        angular.forEach($scope.dorms, function (dorm, key) {
+          if (dorm.dormCategoryId == category.categoryId) {
+            categoryes.push({
+              "id": "dorm" + dorm.dormId,
+              "parent": "cat" + dorm.dormCategoryId,
+              "text": dorm.name,
+              "icon": "fa fa-building",
+              "state": {
+                "opened": true,
+              }
+            });
+            angular.forEach($scope.rooms, function (value, key) {
+              if (value.dormId == dorm.dormId)
+                categoryes.push({
+                  "id": "room" + value.roomId,
+                  "parent": "dorm" + value.dormId,
+                  "text": value.roomNumber,
+                  "icon": "fa fa-map-marker",
+                  "state": {
+                    "opened": true,
+                  }
+                })
+            });
+          }
+        });
+
+
+        data.push(categoryes);
+      });
+      $scope.filteredByCategory = data;
+    }
 
 
     function getDefaultData() {
@@ -114,6 +159,8 @@
           }
         })
       });
+
+      $scope.filterByCategory();
 
       return $scope.data;
     };
@@ -219,7 +266,7 @@
     }
 
     $scope.addDorm = function () {
-      var dormId = $scope.dorms.length? $scope.dorms[$scope.dorms.length - 1].dormId + 1 : 1;
+      var dormId = $scope.dorms.length ? $scope.dorms[$scope.dorms.length - 1].dormId + 1 : 1;
       $scope.newDorm = {
         "dormId": dormId,
         "name": null,
@@ -295,9 +342,9 @@
     };
 
     $scope.submitSession = function () {
+      $scope.session.status = "salvată";
       toastr.success("Sesiunea a fost salvată.")
     }
-
   };
 
 
