@@ -4,7 +4,7 @@
   angular.module('FMI-Cazare.pages.studentForm')
     .controller('StudentFormCtrl', StudentFormCtrl);
 
-  function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter) {
+  function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter, $state) {
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
     editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
@@ -98,7 +98,17 @@
       debugger;
       alert($scope.dorms);
       alert($scope.dormOptions);
-    }
+    } 
+
+    $scope.saveForm = function () {
+      toastr.info("Cererea a fost salvată.");
+      $state.go("studentTimeline");
+    };
+
+    $scope.sendForm = function () {
+      toastr.success("Cererea a fost trimisă către secretariat.");
+      $state.go("studentTimeline");
+    };
 
   }
 })();

@@ -69,36 +69,9 @@
 
           <ba-wizard-step title="Detalii de cazare" form="vm.accomodationDetailsForm">
             <form name="vm.accomodationDetailsForm" novalidate>
-              <!--<div class="row">
-                <div class="col-md-6">
-                  <div class="form-group has-feedback">
-                    <label for="productName">Preferințele de cămin</label>
-                    <input type="text" class="form-control" id="productName" name="productName" placeholder="Product name" ng-model="vm.productInfo.productName" required>
-                    <span class="help-block error-block basic-block">Required</span>
-                  </div>
-                  <div class="form-group">
-                    <label for="productId">Product id</label>
-                    <input type="text" class="form-control" id="productId" name="productId" placeholder="productId" ng-model="vm.productInfo.productId" required>
-                    <span class="help-block error-block basic-block">Required</span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="productName">Category</label>
-                    <select class="form-control" title="Category" selectpicker>
-                      <option selected>Electronics</option>
-                      <option>Toys</option>
-                      <option>Accessories</option>
-                    </select>
-                  </div>
-                </div>
-              </div>-->
-
               <div class="row">
                 <div class="col-md-4 col-xs-12">
                   <div class="task-todo-container" ng-class="{'transparent': transparent}">
-                    <!--<input type="text" class="form-control task-todo" placeholder="Adăuga cămin.." ng-keyup="addDormOption($event)" ng-model="vm.newOption" />-->
-
                     <div class="form-group">
                       <label for="productName">Preferințele de cămin</label>
                       <select class="form-control" title="Dorms" selectpicker ng-model="vm.newOption">
@@ -124,12 +97,10 @@
 
                 <div class="col-md-4 col-xs-12">
                   <div class="task-todo-container" ng-class="{'transparent': transparent}">
-
                     <div class="form-group">
                       <label for="productName">Preferințele de coleg</label>
                       <input type="text" class="form-control" placeholder="Adăuga coleg.." ng-keyup="addColleague($event)" ng-model="vm.newColleague" />
                     </div>
-
                     <i ng-click="addColleague('',true)" class="add-item-icon ion-plus-round"></i>
                     <div class="box-shadow-border"></div>
                     <ul class="todo-list" ui-sortable ng-model="colleagueOptions">
@@ -176,7 +147,12 @@
                   </div>
                 </div>
               </div>
-
+              <div class="row">
+                <div class="col-xs-12">
+                  <button type="submit" class="btn btn-primary pull-right" style="margin: 15px;" ng-click="sendForm()">Submit</button>
+                  <button type="submit" class="btn btn-warning pull-right" style="margin: 15px;" ng-click="saveForm()">Salvează</button>
+                </div>
+              </div>
             </form>
           </ba-wizard-step>
 
