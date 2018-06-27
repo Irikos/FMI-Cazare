@@ -32,9 +32,9 @@ namespace FMI_Cazare.Models
             [Description("Approved")] Approved = 3,
             [Description("Rejected")] Rejected = 4
         }
-        public List<RoomatePreferenceModel> RoomatePreferenceModels { get; set; }
+        public IEnumerable<RoomatePreferenceModel> RoomatePreferences { get; set; }
 
-        public List<DormPreferenceModel> DormPreferenceModel { get; set; }
+        public IEnumerable<DormPreferenceModel> DormPreferences { get; set; }
 
 
         [Required, DefaultValue(FormState.Unknown)]

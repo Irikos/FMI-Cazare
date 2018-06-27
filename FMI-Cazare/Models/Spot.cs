@@ -10,11 +10,11 @@ namespace FMI_Cazare.Models
         [Key]
         public long SpotId { get; set; }
 
-        [Required]
-        public long RoomId { get; set; }
+        //[Required]
+        //public long RoomId { get; set; }
 
-        [ForeignKey("RoomId")]
-        public RoomModel Room { get; set; }
+        //[ForeignKey("RoomId")]
+        //public RoomModel Room { get; set; }
 
         [Required]
         public long UserId { get; set; }

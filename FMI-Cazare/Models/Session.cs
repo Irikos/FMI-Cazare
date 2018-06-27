@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -35,6 +36,8 @@ namespace FMI_Cazare.Models
 
         [Required, DefaultValue(SessionStatus.Unknown)]
         public SessionStatus Status { get; set; }
+
+        public IEnumerable<DormCategoryModel> DormCategories { get; set; }
 
         public string StatusDescription
         => Status.ToString();
