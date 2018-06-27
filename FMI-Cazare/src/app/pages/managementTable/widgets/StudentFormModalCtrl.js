@@ -13,14 +13,14 @@
     $scope.validate = function (form) {
       form.status = "acceptată";
       form.class = "success";
-      toastr.success("Ai validat cu succes cererea.");
+      toastr.success("Ai validat cererea cu succes.");
       $uibModalInstance.close(form);
     };
 
     $scope.reject = function (form) {
       form.status = "respinsă";
       form.class = "danger";
-      toastr.warning("Ai respins cu succes cererea.");
+      toastr.info("Ai respins cererea cu succes.");
       $uibModalInstance.close(form);
     };
 
