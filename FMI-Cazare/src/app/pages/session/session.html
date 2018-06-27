@@ -173,14 +173,20 @@
 
             <form class="form-horizontal" name="vm.finishForm">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4 col-xs-12">
                   <div ba-panel ba-panel-title="Date sesiune" ba-panel-class="with-scroll">
                     <div class="row">
                       <div class="col-xs-2">
-                        <h4>Deschide sesiuea</h4>
+                        <h4>Deschide sesiunea la salvare</h4>
                       </div>
                       <div class="col-xs-2">
                         <ba-switcher switcher-style="success" switcher-value="vm.switches.s2"></ba-switcher>
+                      </div>
+                      <div class="col-xs-2 col-xs-offset-4">
+                        <h4>Salvează sesiunea</h4>
+                      </div>
+                      <div class="col-xs-2">
+                        <button class="btn btn-primary" ng-click="submitSession()">Submit</button>
                       </div>
                     </div>
                     <div class="row">
@@ -198,7 +204,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8 col-xs-12">
                   <div ba-panel ba-panel-title="Camine" ba-panel-class="with-scroll tree-panel">
                     <div class="row">
                       <div class="col-sm-4">

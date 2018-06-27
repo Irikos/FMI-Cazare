@@ -248,6 +248,7 @@
         "sex": null,
       }
       $scope.rooms.push($scope.newRoom);
+      $scope.refresh();
     }
 
     /*  check if:
@@ -267,6 +268,7 @@
           "sex": sex,
         }
         $scope.rooms.push(newRoom);
+        $scope.refresh();
       }
     }
 
@@ -291,6 +293,10 @@
         $scope.bulkAddRooms(data.startNumber, data.endNumber, data.sex, data.size, data.dormId);
       });
     };
+
+    $scope.submitSession = function () {
+      toastr.success("Sesiunea a fost salvată.")
+    }
 
   };
 
