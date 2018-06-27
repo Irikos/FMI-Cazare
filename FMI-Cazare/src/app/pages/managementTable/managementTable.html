@@ -51,7 +51,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="form in safeCopyForms" ng-class="form.class">
-                <td class="table-id">{{$index}}</td>
+                <td class="table-id">{{ $index + 1 }}</td>
                 <td>
                   <span>
                     {{ form.lastName || "empty"}}

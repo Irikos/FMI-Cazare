@@ -21,11 +21,21 @@ namespace FMI_Cazare.Models
 
         [ForeignKey("UserId")]
         public UserModel User { get; set; }
-        
-        public enum FormState : byte { Unknown = 0, Saved = 1, Sent = 2, Approved = 3, Rejected = 4 }
+
+        public enum FormState : byte
+        {
+            [Description("Unknown")] Unknown = 0,
+            [Description("Saved")] Saved = 1,
+            [Description("Sent")] Sent = 2,
+            [Description("Approved")] Approved = 3,
+            [Description("Rejected")] Rejected = 4
+        }
 
         [Required, DefaultValue(FormState.Unknown)]
         public FormState State { get; set; }
+
+        public string StateDescription
+            => State.ToString();
 
         public bool IsContinuity { get; set; }
 

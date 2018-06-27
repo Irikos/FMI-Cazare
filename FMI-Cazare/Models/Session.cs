@@ -25,10 +25,19 @@ namespace FMI_Cazare.Models
 
         public DateTime DateEnd { get; set; }
 
-        public enum SessionStatus: byte { Unknown = 0 }
+        public enum SessionStatus : byte
+        {
+            [Description("Unknown")] Unknown = 0,
+            [Description("Saved")] Saved = 1,
+            [Description("Open")] Open = 2,
+            [Description("Closed")] Closed = 3
+        }
 
         [Required, DefaultValue(SessionStatus.Unknown)]
         public SessionStatus Status { get; set; }
+
+        public string StatusDescription
+        => Status.ToString();
 
         public DateTime DateCreated { get; set; }
 

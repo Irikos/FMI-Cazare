@@ -8,6 +8,14 @@
     
     var vm = this;
 
+    $scope.dormOptions = [
+      {
+        "name": "Kogalniceanu"
+      },
+      {
+        "name": "Grozavesti"
+      }
+    ];
     $scope.form = $scope.$resolve.items;
     var index = $scope.forms.indexOf($scope.form);
     $scope.validate = function (form) {
