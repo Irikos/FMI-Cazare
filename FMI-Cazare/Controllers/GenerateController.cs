@@ -76,7 +76,43 @@ namespace FMI_Cazare.Controllers
                         SessionId = 1,
                         Name = "Sesiune 1",
                         Description = "Prima sesiune de test",
+                    }
+                );
 
+                await _context.DormCategories.AddRangeAsync(
+                    new DormCategoryModel
+                    {
+                        DormCategoryId = 1,
+                        SessionId = 1,
+                        Name = "A",
+
+                    },
+                    new DormCategoryModel
+                    {
+                        DormCategoryId = 2,
+                        SessionId = 1,
+                        Name = "B"
+                    }
+                );
+
+                await _context.Dorms.AddRangeAsync(
+                    new DormModel
+                    {
+                        DormId = 1,
+                        DormCategoryId = 1,
+                        Name = "Kogalniceanu",
+                    },
+                    new DormModel
+                    {
+                        DormId = 2,
+                        DormCategoryId = 1,
+                        Name = "Grozavesti A1",
+                    },
+                    new DormModel
+                    {
+                        DormId = 3,
+                        DormCategoryId = 2,
+                        Name = "Grozavesti B",
                     }
                 );
 
