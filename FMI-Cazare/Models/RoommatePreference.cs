@@ -11,18 +11,6 @@ namespace FMI_Cazare.Models
         public long RoommatePreferenceId { get; set; }
 
         [Required]
-        public long UserId { get; set; }
-
-        [ForeignKey("UserId")]
-        public UserModel User { get; set; }
-
-        [Required]
-        public long FormId { get; set; }
-
-        [ForeignKey("FormId")]
-        public FormModel Form { get; set; }
-
-        [Required]
         public long StudentId { get; set; }
 
         [ForeignKey("StudentId")]

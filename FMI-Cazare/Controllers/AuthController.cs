@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using FMI_Cazare.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace FMI_Cazare.Controllers
 {
@@ -19,58 +20,87 @@ namespace FMI_Cazare.Controllers
     [Route("api/Auth")]
     public class AuthController : Controller
     {
-        private IConfiguration _config;
         private readonly ApplicationDbContext _context;
 
-        public AuthController(IConfiguration config, ApplicationDbContext context)
+        public AuthController(ApplicationDbContext context)
         {
-            _config = config;
             _context = context;
         }
 
         public struct Credentials
         {
-            public string Username;
+            public string Email;
             public string Password;
         }
 
-        private static string ComputeHash(string password)
+        public static string ComputeHash(string password)
             => BitConverter.ToString(SHA1.Create().ComputeHash(Encoding.Default.GetBytes(password))).Replace("-", String.Empty).ToLower();
 
-        [HttpPost]
-        public async Task<IActionResult> Login([FromBody]Credentials credentials)
+        // POST: api/Auth/Login
+        [HttpPost("Login")]
+        public async Task<UserModel> Login([FromBody] Credentials credentials)
         {
-            IActionResult response = Unauthorized();
-
-            UserModel user = await _context.Users.SingleOrDefaultAsync(m =>
-                m.Email.ToUpper() == credentials.Username.ToUpper() &&
+            if (!HttpContext.Session.IsAvailable)
+            {
+                Response.StatusCode = 400;
+                return null;
+            }
+            UserModel me = await _context.Users.SingleOrDefaultAsync(m =>
+                m.Email.ToUpper() == credentials.Email.ToUpper() &&
                 m.PasswordHash == ComputeHash(credentials.Password));
 
-            if (user != null)
+            if (me != null)
             {
-                SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
-                SigningCredentials creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-                JwtSecurityToken token = new JwtSecurityToken(
-                    issuer: _config["Jwt:Issuer"], 
-                    audience: _config["Jwt:Issuer"], 
-                    expires: new DateTime?(DateTime.Now.AddMinutes(Convert.ToInt64(_config["Jwt:Timeout"]))), 
-                    signingCredentials: creds);
-
-                response = Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token)
-                });
+                me.PasswordHash = null;
+                HttpContext.Session.SetString("User", JsonConvert.SerializeObject(me));
+                return me;
             }
-
-            return response;
+            else
+            {
+                Response.StatusCode = 401;
+                return null;
+            }
         }
 
-        [HttpGet]
-        [Authorize]
-        public IActionResult Check()
+        // GET: api/Auth/WhoAmI
+        [HttpGet("WhoAmI")]
+        public UserModel WhoAmI()
         {
-            return Ok();
+            if (!HttpContext.Session.IsAvailable)
+            {
+                Response.StatusCode = 400;
+                return null;
+            }
+            string me = HttpContext.Session.GetString("User");
+            if (me != null)
+            {
+                return JsonConvert.DeserializeObject<UserModel>(me);
+            }
+            else
+            {
+                Response.StatusCode = 401;
+                return null;
+            }
+        }
+
+        // POST: api/Auth/Logout
+        [HttpGet("Logout")]
+        public IActionResult Logout()
+        {
+            if (!HttpContext.Session.IsAvailable)
+            {
+                return BadRequest();
+            }
+            string me = HttpContext.Session.GetString("User");
+            if (me != null)
+            {
+                HttpContext.Session.Clear();
+                return Ok();
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
     }
 }

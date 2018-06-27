@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<SessionModel> GetSessionModel()
         {
-            return _context.SessionModel;
+            return _context.Sessions;
         }
 
         // GET: api/Sessions/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var sessionModel = await _context.SessionModel.SingleOrDefaultAsync(m => m.SessionId == id);
+            var sessionModel = await _context.Sessions.SingleOrDefaultAsync(m => m.SessionId == id);
 
             if (sessionModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.SessionModel.Add(sessionModel);
+            _context.Sessions.Add(sessionModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSessionModel", new { id = sessionModel.SessionId }, sessionModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var sessionModel = await _context.SessionModel.SingleOrDefaultAsync(m => m.SessionId == id);
+            var sessionModel = await _context.Sessions.SingleOrDefaultAsync(m => m.SessionId == id);
             if (sessionModel == null)
             {
                 return NotFound();
             }
 
-            _context.SessionModel.Remove(sessionModel);
+            _context.Sessions.Remove(sessionModel);
             await _context.SaveChangesAsync();
 
             return Ok(sessionModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool SessionModelExists(long id)
         {
-            return _context.SessionModel.Any(e => e.SessionId == id);
+            return _context.Sessions.Any(e => e.SessionId == id);
         }
     }
 }

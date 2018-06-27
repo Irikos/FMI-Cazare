@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<DormPreferenceModel> GetDormPreferenceModel()
         {
-            return _context.DormPreferenceModel;
+            return _context.DormPreferences;
         }
 
         // GET: api/DormPreferences/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormPreferenceModel = await _context.DormPreferenceModel.SingleOrDefaultAsync(m => m.DormPreferenceId == id);
+            var dormPreferenceModel = await _context.DormPreferences.SingleOrDefaultAsync(m => m.DormPreferenceId == id);
 
             if (dormPreferenceModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.DormPreferenceModel.Add(dormPreferenceModel);
+            _context.DormPreferences.Add(dormPreferenceModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDormPreferenceModel", new { id = dormPreferenceModel.DormPreferenceId }, dormPreferenceModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormPreferenceModel = await _context.DormPreferenceModel.SingleOrDefaultAsync(m => m.DormPreferenceId == id);
+            var dormPreferenceModel = await _context.DormPreferences.SingleOrDefaultAsync(m => m.DormPreferenceId == id);
             if (dormPreferenceModel == null)
             {
                 return NotFound();
             }
 
-            _context.DormPreferenceModel.Remove(dormPreferenceModel);
+            _context.DormPreferences.Remove(dormPreferenceModel);
             await _context.SaveChangesAsync();
 
             return Ok(dormPreferenceModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool DormPreferenceModelExists(long id)
         {
-            return _context.DormPreferenceModel.Any(e => e.DormPreferenceId == id);
+            return _context.DormPreferences.Any(e => e.DormPreferenceId == id);
         }
     }
 }

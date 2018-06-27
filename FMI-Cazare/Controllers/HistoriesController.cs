@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<HistoryModel> GetHistoryModel()
         {
-            return _context.HistoryModel;
+            return _context.Histories;
         }
 
         // GET: api/Histories/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var historyModel = await _context.HistoryModel.SingleOrDefaultAsync(m => m.HistoryId == id);
+            var historyModel = await _context.Histories.SingleOrDefaultAsync(m => m.HistoryId == id);
 
             if (historyModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.HistoryModel.Add(historyModel);
+            _context.Histories.Add(historyModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetHistoryModel", new { id = historyModel.HistoryId }, historyModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var historyModel = await _context.HistoryModel.SingleOrDefaultAsync(m => m.HistoryId == id);
+            var historyModel = await _context.Histories.SingleOrDefaultAsync(m => m.HistoryId == id);
             if (historyModel == null)
             {
                 return NotFound();
             }
 
-            _context.HistoryModel.Remove(historyModel);
+            _context.Histories.Remove(historyModel);
             await _context.SaveChangesAsync();
 
             return Ok(historyModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool HistoryModelExists(long id)
         {
-            return _context.HistoryModel.Any(e => e.HistoryId == id);
+            return _context.Histories.Any(e => e.HistoryId == id);
         }
     }
 }

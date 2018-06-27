@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<RoomModel> GetRoomModel()
         {
-            return _context.RoomModel;
+            return _context.Rooms;
         }
 
         // GET: api/Rooms/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var roomModel = await _context.RoomModel.SingleOrDefaultAsync(m => m.RoomId == id);
+            var roomModel = await _context.Rooms.SingleOrDefaultAsync(m => m.RoomId == id);
 
             if (roomModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.RoomModel.Add(roomModel);
+            _context.Rooms.Add(roomModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRoomModel", new { id = roomModel.RoomId }, roomModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var roomModel = await _context.RoomModel.SingleOrDefaultAsync(m => m.RoomId == id);
+            var roomModel = await _context.Rooms.SingleOrDefaultAsync(m => m.RoomId == id);
             if (roomModel == null)
             {
                 return NotFound();
             }
 
-            _context.RoomModel.Remove(roomModel);
+            _context.Rooms.Remove(roomModel);
             await _context.SaveChangesAsync();
 
             return Ok(roomModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool RoomModelExists(long id)
         {
-            return _context.RoomModel.Any(e => e.RoomId == id);
+            return _context.Rooms.Any(e => e.RoomId == id);
         }
     }
 }

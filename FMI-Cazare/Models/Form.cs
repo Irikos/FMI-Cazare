@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace FMI_Cazare.Models
 {
@@ -30,6 +32,10 @@ namespace FMI_Cazare.Models
             [Description("Approved")] Approved = 3,
             [Description("Rejected")] Rejected = 4
         }
+        public List<RoomatePreferenceModel> RoomatePreferenceModels { get; set; }
+
+        public List<DormPreferenceModel> DormPreferenceModel { get; set; }
+
 
         [Required, DefaultValue(FormState.Unknown)]
         public FormState State { get; set; }

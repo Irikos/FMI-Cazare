@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<DormCategoryModel> GetDormCategoryModel()
         {
-            return _context.DormCategoryModel;
+            return _context.DormCategories;
         }
 
         // GET: api/DormCategories/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormCategoryModel = await _context.DormCategoryModel.SingleOrDefaultAsync(m => m.DormCategoryId == id);
+            var dormCategoryModel = await _context.DormCategories.SingleOrDefaultAsync(m => m.DormCategoryId == id);
 
             if (dormCategoryModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.DormCategoryModel.Add(dormCategoryModel);
+            _context.DormCategories.Add(dormCategoryModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDormCategoryModel", new { id = dormCategoryModel.DormCategoryId }, dormCategoryModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormCategoryModel = await _context.DormCategoryModel.SingleOrDefaultAsync(m => m.DormCategoryId == id);
+            var dormCategoryModel = await _context.DormCategories.SingleOrDefaultAsync(m => m.DormCategoryId == id);
             if (dormCategoryModel == null)
             {
                 return NotFound();
             }
 
-            _context.DormCategoryModel.Remove(dormCategoryModel);
+            _context.DormCategories.Remove(dormCategoryModel);
             await _context.SaveChangesAsync();
 
             return Ok(dormCategoryModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool DormCategoryModelExists(long id)
         {
-            return _context.DormCategoryModel.Any(e => e.DormCategoryId == id);
+            return _context.DormCategories.Any(e => e.DormCategoryId == id);
         }
     }
 }

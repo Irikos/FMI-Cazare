@@ -11,18 +11,14 @@ namespace FMI_Cazare.Models
         public long DormPreferenceId { get; set; }
 
         [Required]
-        public long FormId { get; set; }
-
-        [ForeignKey("FormId")]
-        public FormModel Form { get; set; }
-
-        [Required]
         public long DormId { get; set; }
 
         [ForeignKey("DormId")]
         public DormModel Dorm { get; set; }
 
         public int Value { get; set; }
+
+        public int Priority { get; set; }
 
         public DateTime DateCreated { get; set; }
 

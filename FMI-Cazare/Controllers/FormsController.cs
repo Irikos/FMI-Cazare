@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<FormModel> GetFormModel()
         {
-            return _context.FormModel;
+            return _context.Forms;
         }
 
         // GET: api/Forms/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var formModel = await _context.FormModel.SingleOrDefaultAsync(m => m.FormId == id);
+            var formModel = await _context.Forms.SingleOrDefaultAsync(m => m.FormId == id);
 
             if (formModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.FormModel.Add(formModel);
+            _context.Forms.Add(formModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetFormModel", new { id = formModel.FormId }, formModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var formModel = await _context.FormModel.SingleOrDefaultAsync(m => m.FormId == id);
+            var formModel = await _context.Forms.SingleOrDefaultAsync(m => m.FormId == id);
             if (formModel == null)
             {
                 return NotFound();
             }
 
-            _context.FormModel.Remove(formModel);
+            _context.Forms.Remove(formModel);
             await _context.SaveChangesAsync();
 
             return Ok(formModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool FormModelExists(long id)
         {
-            return _context.FormModel.Any(e => e.FormId == id);
+            return _context.Forms.Any(e => e.FormId == id);
         }
     }
 }

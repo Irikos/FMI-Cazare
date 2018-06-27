@@ -20,28 +20,28 @@ namespace FMI_Cazare
         {
         }
 
-        public DbSet<FMI_Cazare.Models.DocumentModel> DocumentModel { get; set; }
+        public DbSet<DocumentModel> Documents { get; set; }
 
-        public DbSet<FMI_Cazare.Models.DormCategoryModel> DormCategoryModel { get; set; }
+        public DbSet<DormCategoryModel> DormCategories { get; set; }
 
-        public DbSet<FMI_Cazare.Models.DormModel> DormModel { get; set; }
+        public DbSet<DormModel> Dorms { get; set; }
 
-        public DbSet<FMI_Cazare.Models.DormPreferenceModel> DormPreferenceModel { get; set; }
+        public DbSet<DormPreferenceModel> DormPreferences { get; set; }
 
-        public DbSet<FMI_Cazare.Models.FormModel> FormModel { get; set; }
+        public DbSet<FormModel> Forms { get; set; }
 
-        public DbSet<FMI_Cazare.Models.MessageModel> MessageModel { get; set; }
+        public DbSet<MessageModel> Messages { get; set; }
 
-        public DbSet<FMI_Cazare.Models.NotificationModel> NotificationModel { get; set; }
+        public DbSet<NotificationModel> Notifications { get; set; }
 
-        public DbSet<FMI_Cazare.Models.RoomatePreferenceModel> RoomatePreferenceModel { get; set; }
+        public DbSet<RoomatePreferenceModel> RoomatePreferences { get; set; }
 
-        public DbSet<FMI_Cazare.Models.RoomModel> RoomModel { get; set; }
+        public DbSet<RoomModel> Rooms { get; set; }
+        
+        public DbSet<SessionModel> Sessions { get; set; }
 
-        public DbSet<FMI_Cazare.Models.SessionModel> SessionModel { get; set; }
+        public DbSet<SpotModel> Spots { get; set; }
 
-        public DbSet<FMI_Cazare.Models.SpotModel> SpotModel { get; set; }
-
-        public DbSet<FMI_Cazare.Models.HistoryModel> HistoryModel { get; set; }
+        public DbSet<HistoryModel> Histories { get; set; }
     }
 }

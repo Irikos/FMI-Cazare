@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<DormModel> GetDormModel()
         {
-            return _context.DormModel;
+            return _context.Dorms;
         }
 
         // GET: api/Dorms/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormModel = await _context.DormModel.SingleOrDefaultAsync(m => m.DormId == id);
+            var dormModel = await _context.Dorms.SingleOrDefaultAsync(m => m.DormId == id);
 
             if (dormModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.DormModel.Add(dormModel);
+            _context.Dorms.Add(dormModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDormModel", new { id = dormModel.DormId }, dormModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var dormModel = await _context.DormModel.SingleOrDefaultAsync(m => m.DormId == id);
+            var dormModel = await _context.Dorms.SingleOrDefaultAsync(m => m.DormId == id);
             if (dormModel == null)
             {
                 return NotFound();
             }
 
-            _context.DormModel.Remove(dormModel);
+            _context.Dorms.Remove(dormModel);
             await _context.SaveChangesAsync();
 
             return Ok(dormModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool DormModelExists(long id)
         {
-            return _context.DormModel.Any(e => e.DormId == id);
+            return _context.Dorms.Any(e => e.DormId == id);
         }
     }
 }

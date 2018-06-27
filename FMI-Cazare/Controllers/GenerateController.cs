@@ -25,26 +25,52 @@ namespace FMI_Cazare.Controllers
         {
             try
             {
-                _context.DocumentModel.RemoveRange(_context.DocumentModel);
-                _context.DormCategoryModel.RemoveRange(_context.DormCategoryModel);
-                _context.DormPreferenceModel.RemoveRange(_context.DormPreferenceModel);
-                _context.DormModel.RemoveRange(_context.DormModel);
-                _context.FormModel.RemoveRange(_context.FormModel);
-                _context.HistoryModel.RemoveRange(_context.HistoryModel);
-                _context.MessageModel.RemoveRange(_context.MessageModel);
-                _context.NotificationModel.RemoveRange(_context.NotificationModel);
-                _context.RoomatePreferenceModel.RemoveRange(_context.RoomatePreferenceModel);
-                _context.RoomModel.RemoveRange(_context.RoomModel);
-                _context.SessionModel.RemoveRange(_context.SessionModel);
-                _context.SpotModel.RemoveRange(_context.SpotModel);
-                _context.Users.RemoveRange(_context.Users);
+                /*_context.Documents.RemoveRange(_context.Documents);
+                _context.DormCategories.RemoveRange(_context.DormCategories);
+                _context.DormPreferences.RemoveRange(_context.DormPreferences);
+                _context.Dorms.RemoveRange(_context.Dorms);
+                _context.Forms.RemoveRange(_context.Forms);
+                _context.Histories.RemoveRange(_context.Histories);
+                _context.Messages.RemoveRange(_context.Messages);
+                _context.Notifications.RemoveRange(_context.Notifications);
+                _context.RoomatePreferences.RemoveRange(_context.RoomatePreferences);
+                _context.Rooms.RemoveRange(_context.Rooms);
+                _context.Sessions.RemoveRange(_context.Sessions);
+                _context.Spots.RemoveRange(_context.Spots);
+                _context.Users.RemoveRange(_context.Users);*/
 
-                await _context.SaveChangesAsync();
+                await _context.Database.EnsureDeletedAsync();
 
+                await _context.Database.EnsureCreatedAsync();
 
-                await _context.SaveChangesAsync();
+                await _context.Users.AddRangeAsync(
+                    new UserModel
+                    {
+                        Email = "admin@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("admin"),
+                        Role = UserModel.UserRole.Admin
+                    },
+                    new UserModel
+                    {
+                        Email = "management@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("management"),
+                        Role = UserModel.UserRole.Management
+                    },
+                    new UserModel
+                    {
+                        Email = "teacher@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("teacher"),
+                        Role = UserModel.UserRole.Teacher
+                    },
+                    new UserModel
+                    {
+                        Email = "student@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("student"),
+                        Role = UserModel.UserRole.Student
+                    }
+                );
 
-                await _context.SessionModel.AddRangeAsync(
+                await _context.Sessions.AddRangeAsync(
                     new SessionModel
                     {
                         SessionId = 1,
@@ -77,19 +103,19 @@ namespace FMI_Cazare.Controllers
         {
             return "value";
         }
-        
+
         // POST: api/Generate
         [HttpPost]
         public void Post([FromBody]string value)
         {
         }
-        
+
         // PUT: api/Generate/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
-        
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)

@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<NotificationModel> GetNotificationModel()
         {
-            return _context.NotificationModel;
+            return _context.Notifications;
         }
 
         // GET: api/Notifications/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var notificationModel = await _context.NotificationModel.SingleOrDefaultAsync(m => m.NotificationId == id);
+            var notificationModel = await _context.Notifications.SingleOrDefaultAsync(m => m.NotificationId == id);
 
             if (notificationModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.NotificationModel.Add(notificationModel);
+            _context.Notifications.Add(notificationModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetNotificationModel", new { id = notificationModel.NotificationId }, notificationModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var notificationModel = await _context.NotificationModel.SingleOrDefaultAsync(m => m.NotificationId == id);
+            var notificationModel = await _context.Notifications.SingleOrDefaultAsync(m => m.NotificationId == id);
             if (notificationModel == null)
             {
                 return NotFound();
             }
 
-            _context.NotificationModel.Remove(notificationModel);
+            _context.Notifications.Remove(notificationModel);
             await _context.SaveChangesAsync();
 
             return Ok(notificationModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool NotificationModelExists(long id)
         {
-            return _context.NotificationModel.Any(e => e.NotificationId == id);
+            return _context.Notifications.Any(e => e.NotificationId == id);
         }
     }
 }

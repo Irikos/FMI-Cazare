@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<MessageModel> GetMessageModel()
         {
-            return _context.MessageModel;
+            return _context.Messages;
         }
 
         // GET: api/Messages/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var messageModel = await _context.MessageModel.SingleOrDefaultAsync(m => m.MessageId == id);
+            var messageModel = await _context.Messages.SingleOrDefaultAsync(m => m.MessageId == id);
 
             if (messageModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.MessageModel.Add(messageModel);
+            _context.Messages.Add(messageModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMessageModel", new { id = messageModel.MessageId }, messageModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var messageModel = await _context.MessageModel.SingleOrDefaultAsync(m => m.MessageId == id);
+            var messageModel = await _context.Messages.SingleOrDefaultAsync(m => m.MessageId == id);
             if (messageModel == null)
             {
                 return NotFound();
             }
 
-            _context.MessageModel.Remove(messageModel);
+            _context.Messages.Remove(messageModel);
             await _context.SaveChangesAsync();
 
             return Ok(messageModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool MessageModelExists(long id)
         {
-            return _context.MessageModel.Any(e => e.MessageId == id);
+            return _context.Messages.Any(e => e.MessageId == id);
         }
     }
 }

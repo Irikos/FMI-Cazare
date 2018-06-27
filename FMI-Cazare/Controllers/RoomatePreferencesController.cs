@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<RoomatePreferenceModel> GetRoomatePreferenceModel()
         {
-            return _context.RoomatePreferenceModel;
+            return _context.RoomatePreferences;
         }
 
         // GET: api/RoomatePreferences/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var roomatePreferenceModel = await _context.RoomatePreferenceModel.SingleOrDefaultAsync(m => m.RoommatePreferenceId == id);
+            var roomatePreferenceModel = await _context.RoomatePreferences.SingleOrDefaultAsync(m => m.RoommatePreferenceId == id);
 
             if (roomatePreferenceModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.RoomatePreferenceModel.Add(roomatePreferenceModel);
+            _context.RoomatePreferences.Add(roomatePreferenceModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRoomatePreferenceModel", new { id = roomatePreferenceModel.RoommatePreferenceId }, roomatePreferenceModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var roomatePreferenceModel = await _context.RoomatePreferenceModel.SingleOrDefaultAsync(m => m.RoommatePreferenceId == id);
+            var roomatePreferenceModel = await _context.RoomatePreferences.SingleOrDefaultAsync(m => m.RoommatePreferenceId == id);
             if (roomatePreferenceModel == null)
             {
                 return NotFound();
             }
 
-            _context.RoomatePreferenceModel.Remove(roomatePreferenceModel);
+            _context.RoomatePreferences.Remove(roomatePreferenceModel);
             await _context.SaveChangesAsync();
 
             return Ok(roomatePreferenceModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool RoomatePreferenceModelExists(long id)
         {
-            return _context.RoomatePreferenceModel.Any(e => e.RoommatePreferenceId == id);
+            return _context.RoomatePreferences.Any(e => e.RoommatePreferenceId == id);
         }
     }
 }

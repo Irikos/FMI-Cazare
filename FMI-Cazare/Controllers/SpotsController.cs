@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<SpotModel> GetSpotModel()
         {
-            return _context.SpotModel;
+            return _context.Spots;
         }
 
         // GET: api/Spots/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var spotModel = await _context.SpotModel.SingleOrDefaultAsync(m => m.SpotId == id);
+            var spotModel = await _context.Spots.SingleOrDefaultAsync(m => m.SpotId == id);
 
             if (spotModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.SpotModel.Add(spotModel);
+            _context.Spots.Add(spotModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSpotModel", new { id = spotModel.SpotId }, spotModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var spotModel = await _context.SpotModel.SingleOrDefaultAsync(m => m.SpotId == id);
+            var spotModel = await _context.Spots.SingleOrDefaultAsync(m => m.SpotId == id);
             if (spotModel == null)
             {
                 return NotFound();
             }
 
-            _context.SpotModel.Remove(spotModel);
+            _context.Spots.Remove(spotModel);
             await _context.SaveChangesAsync();
 
             return Ok(spotModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool SpotModelExists(long id)
         {
-            return _context.SpotModel.Any(e => e.SpotId == id);
+            return _context.Spots.Any(e => e.SpotId == id);
         }
     }
 }

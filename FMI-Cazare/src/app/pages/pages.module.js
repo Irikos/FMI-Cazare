@@ -28,9 +28,9 @@
   function httpInterceptor($q, $localStorage, $location) {
     return {
       'responseError': function (rejection) {
-        if (rejection.status === 401 && $location.path() != '/login') {
-          delete $localStorage.token;
-          $location.path('/login');
+        if (rejection.status === 401) {
+          alert("Sesiunea a expirat.");
+          $location.path('/auth.html');
         }
         return $q.reject(rejection);
       }

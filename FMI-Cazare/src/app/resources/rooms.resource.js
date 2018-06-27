@@ -1,11 +1,11 @@
 ﻿(function () {
-    'use strict';
+  'use strict';
 
-    angular.module('FMI-Cazare')
-        .factory('Rooms', Rooms);
+  angular.module('FMI-Cazare.resources')
+    .factory('Rooms', Rooms);
 
-    function Rooms($resource) {
-        return $resource('/api/Rooms/:id'); 
-    }
+  function Rooms($resource) {
+    return $resource('/api/Rooms/:id');
+  }
 
 })();

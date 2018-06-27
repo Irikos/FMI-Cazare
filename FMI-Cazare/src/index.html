@@ -23,6 +23,20 @@
   <!-- css files will be automatically insert here -->
   <!-- endinject -->
   <!-- endbuild -->
+
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "api/Auth/WhoAmI?" + new Date().getTime(), true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status !== 200)
+        document.location = "/auth.html";
+      else if (xhr.readyState === 4 && xhr.status === 200)
+        document.currentUser = JSON.parse(xhr.response);
+    };
+    xhr.withCredentials = true;
+    xhr.send();
+  </script>
 </head>
 <body>
 <div class="body-bg"></div>

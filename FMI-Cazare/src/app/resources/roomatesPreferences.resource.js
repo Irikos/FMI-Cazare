@@ -1,11 +1,11 @@
 ﻿(function () {
-    'use strict';
+  'use strict';
 
-    angular.module('FMI-Cazare')
-        .factory('RoomatePreferences', RoomatePreferences);
+  angular.module('FMI-Cazare.resources')
+    .factory('RoomatePreferences', RoomatePreferences);
 
-    function RoomatePreferences($resource) {
-        return $resource('/api/RoomatePreferences/:id'); 
-    }
+  function RoomatePreferences($resource) {
+    return $resource('/api/RoomatePreferences/:id');
+  }
 
 })();

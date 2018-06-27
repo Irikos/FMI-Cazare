@@ -25,7 +25,7 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<DocumentModel> GetDocumentModel()
         {
-            return _context.DocumentModel;
+            return _context.Documents;
         }
 
         // GET: api/Documents/5
@@ -37,7 +37,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var documentModel = await _context.DocumentModel.SingleOrDefaultAsync(m => m.DocumentId == id);
+            var documentModel = await _context.Documents.SingleOrDefaultAsync(m => m.DocumentId == id);
 
             if (documentModel == null)
             {
@@ -91,7 +91,7 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.DocumentModel.Add(documentModel);
+            _context.Documents.Add(documentModel);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetDocumentModel", new { id = documentModel.DocumentId }, documentModel);
@@ -106,13 +106,13 @@ namespace FMI_Cazare.Controllers
                 return BadRequest(ModelState);
             }
 
-            var documentModel = await _context.DocumentModel.SingleOrDefaultAsync(m => m.DocumentId == id);
+            var documentModel = await _context.Documents.SingleOrDefaultAsync(m => m.DocumentId == id);
             if (documentModel == null)
             {
                 return NotFound();
             }
 
-            _context.DocumentModel.Remove(documentModel);
+            _context.Documents.Remove(documentModel);
             await _context.SaveChangesAsync();
 
             return Ok(documentModel);
@@ -120,7 +120,7 @@ namespace FMI_Cazare.Controllers
 
         private bool DocumentModelExists(long id)
         {
-            return _context.DocumentModel.Any(e => e.DocumentId == id);
+            return _context.Documents.Any(e => e.DocumentId == id);
         }
     }
 }
