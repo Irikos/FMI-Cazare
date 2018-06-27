@@ -15,6 +15,7 @@
         method: 'GET',
         transformResponse: function (data) {
           data = angular.fromJson(data);
+          document.currentUser = data;
           return data;
         },
         interceptor: { responseError: resourceErrorHandler }

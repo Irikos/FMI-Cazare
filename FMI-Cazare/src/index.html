@@ -31,6 +31,8 @@
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status !== 200)
         document.location = "/auth.html";
+      else if (xhr.readyState === 4)
+        document.currentUser = JSON.parse(xhr.response);
     };
     xhr.withCredentials = true;
     xhr.send();
