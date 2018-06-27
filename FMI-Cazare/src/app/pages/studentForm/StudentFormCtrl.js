@@ -13,9 +13,9 @@
     $scope.test = "Hello, world!";
 
     $scope.student = {};
-    $scope.student = Forms.get({ id: 1 }, function () {
+    $scope.student = Forms.get({ id: document.currentUser.userId }, function () {
       if ($scope.student.user == undefined)
-        $scope.student.user = Users.get({ id: 1 }, function () {
+        $scope.student.user = Users.get({ id: document.currentUser.userId }, function () {
 
           if ($scope.student.dormPreferences)
             $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
