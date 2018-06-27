@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace FMI_Cazare.Models
 {
@@ -21,7 +23,11 @@ namespace FMI_Cazare.Models
 
         [ForeignKey("UserId")]
         public UserModel User { get; set; }
-        
+
+        public List<RoomatePreferenceModel> RoomatePreferenceModels { get; set; }
+
+        public List<DormPreferenceModel> DormPreferenceModel { get; set; }
+
         public enum FormState : byte { Unknown = 0, Saved = 1, Sent = 2, Approved = 3, Rejected = 4 }
 
         [Required, DefaultValue(FormState.Unknown)]

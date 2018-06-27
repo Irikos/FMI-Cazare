@@ -4,7 +4,7 @@
   angular.module('FMI-Cazare.pages.studentForm')
     .controller('StudentFormCtrl', StudentFormCtrl);
 
-  function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter, $state) {
+  function StudentFormCtrl($scope, toastr, editableOptions, editableThemes, baConfig, $filter, $state, Dorms) {
     editableOptions.theme = 'bs3';
     editableThemes['bs3'].submitTpl = '<button type="submit" class="btn btn-primary btn-with-icon"><i class="ion-checkmark-round"></i></button>';
     editableThemes['bs3'].cancelTpl = '<button type="button" ng-click="$form.$cancel()" class="btn btn-default btn-with-icon"><i class="ion-close-round"></i></button>';
@@ -34,7 +34,9 @@
     };
 
     $scope.transparent = baConfig.theme.blur;
-
+      var entries = Dorms.query(function (a) {
+          console.log(a);
+      });
 
     $scope.dorms = [
       {
