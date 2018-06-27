@@ -24,29 +24,15 @@
 
     $scope.form = {
       "name": "John Doe",
-      "status": "netrimis",
+      "status": "4",
       "date": new Date(2018, 8, 15, 10, 30, 43),
     }
-
-    $scope.formApproved = {
-      "name": "John Doe",
-      "status": "aprobată",
-      "date": new Date(2018, 8, 16, 10, 30, 43),
-    }
-
-    $scope.formRejected = {
-      "name": "John Doe",
-      "status": "respinsă",
-      "date": new Date(2018, 8, 16, 10, 30, 43),
-      "message": "Nu ai uploadat fișierele ce dovedesc situația socială.",
-    }
-
-
+    
     $scope.timelineItems = [
       {
         "sessionName": "Sesiunea toamnă 2018",
         "sessionStatus": "open",
-        "formStatus": "not sent",
+        "formStatus": "3",
       },
     ];
 

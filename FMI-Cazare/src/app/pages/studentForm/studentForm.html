@@ -70,7 +70,7 @@
           <ba-wizard-step title="Detalii de cazare" form="vm.accomodationDetailsForm">
             <form name="vm.accomodationDetailsForm" novalidate>
               <div class="row">
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-3 col-xs-12">
                   <div class="task-todo-container" ng-class="{'transparent': transparent}">
                     <div class="form-group">
                       <label for="productName">Preferințele de cămin</label>
@@ -95,7 +95,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-3 col-xs-12">
                   <div class="task-todo-container" ng-class="{'transparent': transparent}">
                     <div class="form-group">
                       <label for="productName">Preferințele de coleg</label>
@@ -117,17 +117,16 @@
                   </div>
                 </div>
 
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-3 col-xs-12">
                   <div class="row">
                     <div class="form-group has-feedback col-xs-6">
                       <label for="socialIncome">Venitul lunar (RON)</label>
-                      <input type="text" class="form-control" name="socialIncome" placeholder="Venitul lunar pe membru al familiei" ng-model="student.socialIncome" ng-disabled="student.social == false">
+                      <input type="number" class="form-control" name="socialIncome" placeholder="Venitul lunar pe membru al familiei" ng-model="student.socialIncome" ng-disabled="student.social == false">
                     </div>
                     <div class="col-xs-6">
-                      <label></label>
                       <label class="checkbox-inline custom-checkbox nowrap">
                         <input type="checkbox" ng-model="student.social">
-                        <span>Caz social:</span>
+                        <span>Caz social</span>
                       </label>
                     </div>
                   </div>
@@ -138,12 +137,18 @@
                       <input type="text" class="form-control" name="socialIncome" placeholder="Căminul în care ați stat anul trecut" ng-model="student.lastDorm" ng-disabled="student.continuity == false">
                     </div>
                     <div class="col-xs-6">
-                      <label></label>
                       <label class="checkbox-inline custom-checkbox nowrap">
                         <input type="checkbox" ng-model="student.continuity">
-                        <span>Continuitate:</span>
+                        <span>Continuitate</span>
                       </label>
                     </div>
+                  </div>
+                </div>
+
+                <div class="col-md-3 col-xs-12">
+                  <div class="form-group has-feedback">
+                    <label>Mesaj pentru secretariat</label>
+                    <textarea class="form-control" ng-model="student.description" placeholder="Mesaj pentru secretariat..."></textarea>
                   </div>
                 </div>
               </div>
