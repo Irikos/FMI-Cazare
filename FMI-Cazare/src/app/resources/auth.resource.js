@@ -7,7 +7,7 @@
   /** @ngInject */
   function Auth($resource) {
     function resourceErrorHandler(response) {
-      document.location = '/login.html';
+      document.location = '/auth.html';
     }
 
     return $resource('api/Auth/:command', {}, {
