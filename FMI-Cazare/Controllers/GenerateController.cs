@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using FMI_Cazare.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FMI_Cazare.Controllers
 {
@@ -43,42 +44,113 @@ namespace FMI_Cazare.Controllers
 
                 await _context.Database.EnsureCreatedAsync();
 
+                var adminUserModel = new UserModel()
+                {
+                    UserId = 1,
+                    Email = "admin@fmi.unibuc.ro",
+                    PasswordHash = AuthController.ComputeHash("admin"),
+                    Role = UserModel.UserRole.Admin
+                };
+
                 await _context.Users.AddRangeAsync(
+                    adminUserModel,
                     new UserModel
                     {
-                        Email = "admin@fmi.unibuc.ro",
-                        PasswordHash = AuthController.ComputeHash("admin"),
-                        Role = UserModel.UserRole.Admin
-                    },
-                    new UserModel
-                    {
+                        UserId = 2,
                         Email = "management@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("management"),
                         Role = UserModel.UserRole.Management
                     },
                     new UserModel
                     {
+                        UserId = 3,
                         Email = "teacher@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("teacher"),
                         Role = UserModel.UserRole.Teacher
                     },
                     new UserModel
                     {
+                        UserId = 4,
                         Email = "student@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("student"),
+                        Role = UserModel.UserRole.Student
+                    },
+                    new UserModel
+                    {
+                        UserId = 5,
+                        Email = "student2@fmi.unibuc.ro",
+                        PasswordHash = AuthController.ComputeHash("student"),
+                        Role = UserModel.UserRole.Student
+                    },
+                    new UserModel
+                    {
+                        UserId = 6,
+                        Email = "student3@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("student"),
                         Role = UserModel.UserRole.Student
                     }
                 );
 
-                await _context.Sessions.AddRangeAsync(
-                    new SessionModel
+                await _context.Forms.AddRangeAsync(
+                    new FormModel
                     {
+                        FormId = 1,
                         SessionId = 1,
-                        Name = "Sesiune 1",
-                        Description = "Prima sesiune de test",
-
+                        UserId = 4,
+                        State = FormModel.FormState.Saved,
+                        IsContinuity = false,
+                        IsSocial = true
                     }
                 );
+
+                await _context.DormPreferences.AddRangeAsync(
+                    new DormPreferenceModel
+                    {
+                        DormPreferenceId = 1,
+                        DormId = 1,
+                        Priority = 1,
+                    }
+                );
+
+                await _context.DormPreferences.AddRangeAsync(
+                    new DormPreferenceModel
+                    {
+                        DormPreferenceId = 1,
+                        DormId = 2,
+                        Priority = 2,
+                    }
+                );
+
+                await _context.DormPreferences.AddRangeAsync(
+                    new DormPreferenceModel
+                    {
+                        DormPreferenceId = 2,
+                        DormId = 3,
+                        Priority = 3,
+                    }
+                );
+           
+                await _context.RoomatePreferences.AddRangeAsync(
+                    new RoomatePreferenceModel
+                    {
+                        RoommatePreferenceId = 2,
+                        StudentId = 5,
+                        Priority = 1,
+                    }
+                );
+
+                await _context.RoomatePreferences.AddRangeAsync(
+                    new RoomatePreferenceModel
+                    {
+                        RoommatePreferenceId = 2,
+                        StudentId = 6,
+                        Priority = 2,
+                    }
+                );
+                //var studentId = _context.Users.FirstOrDefault(m => m.Email == "student@fmi.unibuc.ro").UserId;
+
+
+
 
                 await _context.SaveChangesAsync();
 
