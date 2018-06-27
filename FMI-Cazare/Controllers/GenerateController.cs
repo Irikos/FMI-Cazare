@@ -139,12 +139,40 @@ namespace FMI_Cazare.Controllers
                     }
                 );
 
-                await _context.RoomatePreferences.AddRangeAsync(
-                    new RoomatePreferenceModel
+                await _context.DormCategories.AddRangeAsync(
+                    new DormCategoryModel
                     {
-                        RoommatePreferenceId = 2,
-                        StudentId = 6,
-                        Priority = 2,
+                        DormCategoryId = 1,
+                        SessionId = 1,
+                        Name = "A",
+
+                    },
+                    new DormCategoryModel
+                    {
+                        DormCategoryId = 2,
+                        SessionId = 1,
+                        Name = "B"
+                    }
+                );
+
+                await _context.Dorms.AddRangeAsync(
+                    new DormModel
+                    {
+                        DormId = 1,
+                        DormCategoryId = 1,
+                        Name = "Kogalniceanu",
+                    },
+                    new DormModel
+                    {
+                        DormId = 2,
+                        DormCategoryId = 1,
+                        Name = "Grozavesti A1",
+                    },
+                    new DormModel
+                    {
+                        DormId = 3,
+                        DormCategoryId = 2,
+                        Name = "Grozavesti B",
                     }
                 );
                 //var studentId = _context.Users.FirstOrDefault(m => m.Email == "student@fmi.unibuc.ro").UserId;
