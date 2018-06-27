@@ -21,7 +21,7 @@
   function routeConfig($urlRouterProvider, $locationProvider, baSidebarServiceProvider) {
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise('/dashboard');
-    $httpProvider.interceptors.push(httpInterceptor);
+    //$httpProvider.interceptors.push(httpInterceptor);
   }
 
   /** @ngInject */

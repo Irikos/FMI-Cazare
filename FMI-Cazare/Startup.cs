@@ -31,6 +31,8 @@ namespace FMI_Cazare
         {
             services.AddDbContext<ApplicationDbContext>(options => {
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+                ApplicationDbContext.DefaultContextOptions = options.Options as DbContextOptions<ApplicationDbContext>;
+                ApplicationDbContext.Default.Database.EnsureCreated();
             });
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

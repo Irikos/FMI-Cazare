@@ -5,6 +5,13 @@ namespace FMI_Cazare
 {
     public class ApplicationDbContext : DbContext
     {
+        public static DbContextOptions<ApplicationDbContext> DefaultContextOptions = null;
+
+        public static ApplicationDbContext Default
+        {
+            get => new ApplicationDbContext(DefaultContextOptions);
+        }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<UserModel> Users { get; set; }

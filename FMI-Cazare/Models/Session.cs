@@ -10,19 +10,19 @@ namespace FMI_Cazare.Models
         [Key]
         public long SessionId { get; set; }
 
-        [Required]
-        public long IdSession { get; set; }
+        //public long IdSession { get; set; }
 
-        [ForeignKey("IdSession")]
-        public SessionModel SubSession { get; set; }
+        public string Name { get; set; }
 
-        [Required]
+        public string Description { get; set; }
+
+        //[ForeignKey("IdSession")]
+        //public SessionModel SubSession { get; set; }
+
         public DateTime DateStart { get; set; }
 
-        [Required]
         public DateTime Deadline { get; set; }
 
-        [Required]
         public DateTime DateEnd { get; set; }
 
         public enum SessionStatus: byte { Unknown = 0 }
