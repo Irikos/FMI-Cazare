@@ -15,8 +15,26 @@
     $scope.test = "Hello, world!";
 
     $scope.forms = Forms.query(function (a) {
+      $scope.forms = $scope.forms.filter(f => f.state >= 2);
       $scope.safeCopyForms = $scope.forms;
     });
+
+    $scope.getFormClass = function (form) {
+      switch (form.state) {
+        case 2:
+          return 'primary';
+          break;
+        case 3:
+          return 'success';
+          break;
+        case 4:
+          return 'danger';
+          break;
+        default:
+          return 'warning';
+          break;
+      }
+    }
 
     $scope.viewStudentModal = function (page, size, form) {
       var modalInstance = $uibModal.open({
