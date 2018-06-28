@@ -15,7 +15,7 @@
     $scope.test = "Hello, world!";
 
     $scope.forms = Forms.query(function (a) {
-      $scope.forms = $scope.forms.filter(f => f.state >= 2);
+      $scope.forms = $scope.forms.filter(function (f) { return f.state >= 2; });
       $scope.safeCopyForms = $scope.forms;
     });
 

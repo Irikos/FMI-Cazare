@@ -21,7 +21,7 @@
             $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
           $scope.dorms = Dorms.query(function (a) {
             if ($scope.student.dormPreferences)
-              $scope.dorms = $scope.dorms.filter(d => $scope.student.dormPreferences.find(dormP => dormP.dormId == d.dormId) == null)
+              $scope.dorms = $scope.dorms.filter(function (d) { return $scope.student.dormPreferences.find(function (dormP) { return dormP.dormId == d.dormId; }) == null; })
           });
         });
       else {
@@ -29,7 +29,7 @@
           $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
         $scope.dorms = Dorms.query(function (a) {
           if ($scope.student.dormPreferences)
-            $scope.dorms = $scope.dorms.filter(d => $scope.student.dormPreferences.find(dormP => dormP.dormId == d.dormId) == null)
+            $scope.dorms = $scope.dorms.filter(function (d) { return $scope.student.dormPreferences.find(function (dormP) { return dormP.dormId == d.dormId; }) == null; })
         });
       }
     });
