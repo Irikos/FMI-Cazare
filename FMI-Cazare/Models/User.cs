@@ -28,6 +28,8 @@ namespace FMI_Cazare.Models
 
         public string IcNumber { get; set; }
 
+        public DateTime BirthDate { get; set; }
+
         public string BirthPlace { get; set; }
 
         public string Address { get; set; }
@@ -35,6 +37,8 @@ namespace FMI_Cazare.Models
         public string FatherFirstName { get; set; }
 
         public string MotherFirstName { get; set; }
+
+        public string Phone { get; set; }
 
         public string Specialization { get; set; }
 
