@@ -1,7 +1,7 @@
 ﻿<div ba-panel>
   <section id="cd-timeline" class="cd-container cssanimations">
 
-    <div class="cd-timeline-block" ng-if="form.status == '4'">
+    <div class="cd-timeline-block" ng-if="form.state == 4">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Analytics' | kameleonImg )}}"></div>
       </div>
@@ -10,15 +10,15 @@
           <i class="fa fa-pencil-square-o"></i>
           Editează cererea
         </button>
-        <h5>Cererea ta este respină</h5>
-        <p>
+        <h5>Cererea ta este respinsă</h5>
+        <!--<p>
           Motivul: {{form.message}}
-        </p>
+        </p>-->
         <span class="cd-date"><span style="font-weight: bold;">Respinsă la:</span> {{formatDate(formRejected.date)}}</span>
       </div>
     </div>
 
-    <div class="cd-timeline-block" ng-if="form.status == '1'">
+    <div class="cd-timeline-block" ng-if="form.state == 1">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Analytics' | kameleonImg )}}"></div>
       </div>
@@ -31,15 +31,16 @@
         <p>
           Cererea ta este salvată.
         </p>
-        <span class="cd-date"><span style="font-weight: bold;">Respinsă la:</span> {{formatDate(formRejected.date)}}</span>
+        <span class="cd-date"><span style="font-weight: bold;">Salvată la:</span> {{formatDate(formRejected.date)}}</span>
       </div>
     </div>
 
-    <div class="cd-timeline-block" ng-if="form.status == '3'">
+    <div class="cd-timeline-block" ng-if="form.state == 3">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Party-Poppers' | kameleonImg )}}"></div>
       </div>
       <div class="cd-timeline-content success">
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="download(form.id)">Downloadează cererea</button>
         <h5>Felicitări!</h5>
         <p>
           Cererea ta este aprobată.
@@ -48,16 +49,16 @@
       </div>
     </div>
 
-    <div class="cd-timeline-block" ng-if="['2', '3', '4'].indexOf(form.status) != -1">
+    <div class="cd-timeline-block" ng-if="[2, 3, 4].indexOf(form.state) != -1">
       <div class="cd-timeline-img">
         <div class="kameleon-icon"><img ng-src="{{::( 'Checklist' | kameleonImg )}}"></div>
       </div>
       <div class="cd-timeline-content warning">
-        <h5>{{form.name}}</h5>
-        <p>
-          Cererea ta este trimisă.
-        </p>
-        <span class="cd-date"><span style="font-weight: bold;">Trimisă la:</span> {{formatDate(form.date)}}</span>
+          <h5>{{form.name}}</h5>
+          <p>
+            Cererea ta este în proces de evaluare.
+          </p>
+          <span class="cd-date"><span style="font-weight: bold;">Trimisă la:</span> {{formatDate(form.date)}}</span>
       </div>
     </div>
 
@@ -66,14 +67,14 @@
         <div class="kameleon-icon"><img ng-src="{{::( 'Student-3' | kameleonImg )}}"></div>
       </div>
       <div class="cd-timeline-content primary">
-        <button class="btn btn-primary" ng-click="test()">Test</button>
-        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="goToForm();" ng-if="form.status == '0'">
+        <!--<button class="btn btn-primary" ng-click="test()">Test</button>-->
+        <button type="button" class="btn btn-success btn-with-icon pull-right backup-buttons-margin" ng-click="goToForm();" ng-if="form.state == 0">
           <i class="fa fa-plus-square-o"></i>
           Creează cerere de cazare
         </button>
         <h5>{{session.name}}</h5>
         <p>
-          Sesiunea este {{session.status}}
+          Sesiunea este deschisă.
         </p>
         <span class="cd-date"><span style="font-weight: bold;">Deadline:</span> {{formatDate(session.deadline)}}</span>
       </div>
