@@ -18,16 +18,16 @@
               <tr>
                 <th></th>
                 <th>
-                  <input st-search="lastName" placeholder="Caută după nume" class="input-sm form-control search-input" type="search" />
+                  <input st-search="user.lastName" placeholder="Caută după nume" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <input st-search="firstName" placeholder="Caută după prenume" class="input-sm form-control search-input" type="search" />
+                  <input st-search="user.firstName" placeholder="Caută după prenume" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <input st-search="cnp" placeholder="Caută după CNP" class="input-sm form-control search-input" type="search" />
+                  <input st-search="user.cnp" placeholder="Caută după CNP" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <select st-search="specialization" class="input-sm form-control search-input">
+                  <select st-search="user.specialization" class="input-sm form-control search-input">
                     <option value="">Toate</option>
                     <option value="Informatică">Informatică</option>
                     <option value="CTI">CTI</option>
@@ -35,51 +35,51 @@
                   </select>
                 </th>
                 <th>
-                  <input st-search="message" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
+                  <input st-search="user.observations" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
-                  <select st-search="status" class="input-sm form-control search-input">
+                  <select st-search="state" class="input-sm form-control search-input">
                     <option value="">Toate</option>
-                    <option value="acceptată">Acceptate</option>
-                    <option value="respinsă">Respinse</option>
-                    <option value="neevaluată">Neevaluate</option>
-                    <option value="în așteptare">În așteptare</option>
+                    <option value="3">Acceptate</option>
+                    <option value="4">Respinse</option>
+                    <option value="2">Neevaluate</option>
+                    <option value="1">În așteptare</option>
                   </select>
                 </th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="form in safeCopyForms" ng-class="form.class">
+              <tr ng-repeat="form in safeCopyForms" ng-class="getFormClass(form)">
                 <td class="table-id">{{ $index + 1 }}</td>
                 <td>
                   <span>
-                    {{ form.lastName || "empty"}}
+                    {{ form.user.lastName || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.firstName || "empty"}}
+                    {{ form.user.firstName || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.cnp || "empty"}}
+                    {{ form.user.cnp || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.specialization || ""}}
+                    {{ form.user.specialization || ""}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.message || "empty"}}
+                    {{ form.user.observations || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.status || "empty"}}
+                    {{ form.state || "empty"}}
                   </span>
                 </td>
                 <td>

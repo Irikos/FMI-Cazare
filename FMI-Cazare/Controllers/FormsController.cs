@@ -25,7 +25,11 @@ namespace FMI_Cazare.Controllers
         [HttpGet]
         public IEnumerable<FormModel> GetFormModel()
         {
-            return _context.Forms;
+            return _context.Forms
+                .Include(f => f.User)
+                .Include(f => f.RoomatePreferences)
+                .Include(f => f.DormPreferences)
+                 .ThenInclude(d => d.Dorm);
         }
 
         // GET: api/Forms/5
@@ -46,7 +50,7 @@ namespace FMI_Cazare.Controllers
 
             if (formModel == null)
             {
-                return NotFound();
+                return Ok(null);
             }
 
             return Ok(formModel);
@@ -113,7 +117,6 @@ namespace FMI_Cazare.Controllers
             formModel.User = null;
 
             formModel.SessionId = 1;
-            formModel.UserId = 1;
 
             if (formModel.FormId == 0)
                 _context.Forms.Add(formModel);
