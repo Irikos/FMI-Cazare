@@ -50,7 +50,7 @@ namespace FMI_Cazare.Controllers
 
             if (formModel == null)
             {
-                return NotFound();
+                return Ok(null);
             }
 
             return Ok(formModel);

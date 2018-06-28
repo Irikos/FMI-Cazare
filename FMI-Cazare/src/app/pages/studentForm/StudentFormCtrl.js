@@ -16,7 +16,7 @@
     $scope.student = Forms.get({ id: document.currentUser.userId }, function () {
       if ($scope.student.user == undefined)
         $scope.student.user = Users.get({ id: document.currentUser.userId }, function () {
-
+          $scope.student.userId = $scope.student.user.userId;
           if ($scope.student.dormPreferences)
             $scope.student.dormPreferences.sort(function (a, b) { return a.priority > b.priority });
           $scope.dorms = Dorms.query(function (a) {
