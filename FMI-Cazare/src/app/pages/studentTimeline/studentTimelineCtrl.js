@@ -25,6 +25,11 @@
       debugger;
       alert($scope.form);
     }
+
+    $scope.download = function (id) {
+      document.location = "/api/Pdf/" + id;
+    };
+
     $scope.session = {
       "name": "Toamnă 2018",
       "status": "deschisă",
