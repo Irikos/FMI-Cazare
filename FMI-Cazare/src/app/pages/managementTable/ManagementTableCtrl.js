@@ -19,6 +19,23 @@
       $scope.safeCopyForms = $scope.forms;
     });
 
+    $scope.getState = function (state) {
+      switch (state) {
+        case 2:
+          return 'În așteptare';
+          break;
+        case 3:
+          return "Aprobată";
+          break;
+        case 4:
+          return "Respinsă";
+          break;
+        default:
+          return 'În așteptare';
+          break;
+      }
+    }
+
     $scope.getFormClass = function (form) {
       switch (form.state) {
         case 2:
@@ -59,4 +76,4 @@
     };
 
   }
-})();
+}) ();

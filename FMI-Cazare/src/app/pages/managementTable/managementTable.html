@@ -35,12 +35,12 @@
                   </select>
                 </th>
                 <th>
-                  <input st-search="user.observations" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
+                  <input st-search="observations" placeholder="Caută dupa mesaj" class="input-sm form-control search-input" type="search" />
                 </th>
                 <th>
                   <select st-search="state" class="input-sm form-control search-input">
                     <option value="">Toate</option>
-                    <option value="3">Acceptate</option>
+                    <option value="3">Aprobate</option>
                     <option value="4">Respinse</option>
                     <option value="2">Neevaluate</option>
                     <option value="1">În așteptare</option>
@@ -74,12 +74,12 @@
                 </td>
                 <td>
                   <span>
-                    {{ form.user.observations || "empty"}}
+                    {{ form.observations || "empty"}}
                   </span>
                 </td>
                 <td>
                   <span>
-                    {{ form.state || "empty"}}
+                    {{ getState(form.state) || "empty"}}
                   </span>
                 </td>
                 <td>

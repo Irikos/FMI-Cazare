@@ -315,8 +315,9 @@
           "sex": sex,
         }
         $scope.rooms.push(newRoom);
-        $scope.refresh();
       }
+      toastr.success("Interval de camere adăugat cu succes.");
+      $scope.refresh();
     }
 
     $scope.removeRoom = function (room) {
