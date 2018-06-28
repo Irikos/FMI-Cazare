@@ -55,7 +55,7 @@ namespace FMI_Cazare.Controllers
                     LastName = "Optimus",
                     IcSerie = "VS",
                     IcNumber = "665577",
-                    BirthPlace = "Vaslui, strada Alcoolului",
+                    BirthPlace = "Vaslui, strada Vasile Lupu",
                     FatherFirstName = "Sudo Su",
                     MotherFirstName = "Emilia",
                     Specialization = "Informatica",
@@ -70,14 +70,36 @@ namespace FMI_Cazare.Controllers
                         UserId = 2,
                         Email = "management@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("management"),
-                        Role = UserModel.UserRole.Management
+                        Role = UserModel.UserRole.Management,
+                        Cnp = "1922345987292",
+                        FirstName = "Adminus",
+                        LastName = "Optimus",
+                        IcSerie = "VS",
+                        IcNumber = "665577",
+                        BirthPlace = "Vaslui, strada Vasile Lupu",
+                        FatherFirstName = "Sudo Su",
+                        MotherFirstName = "Emilia",
+                        Specialization = "Informatica",
+                        Year = "3",
+                        Gender = UserModel.UserGender.Male,
                     },
                     new UserModel
                     {
                         UserId = 3,
                         Email = "teacher@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("teacher"),
-                        Role = UserModel.UserRole.Teacher
+                        Role = UserModel.UserRole.Teacher,
+                        Cnp = "1922345987292",
+                        FirstName = "Profesor",
+                        LastName = "Optimus",
+                        IcSerie = "VS",
+                        IcNumber = "665577",
+                        BirthPlace = "Vaslui, strada Vasile Lupu",
+                        FatherFirstName = "Sudo Su",
+                        MotherFirstName = "Emilia",
+                        Specialization = "Informatica",
+                        Year = "3",
+                        Gender = UserModel.UserGender.Male,
                     },
                     new UserModel
                     {
@@ -102,14 +124,36 @@ namespace FMI_Cazare.Controllers
                         UserId = 5,
                         Email = "student2@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("student"),
-                        Role = UserModel.UserRole.Student
+                        Role = UserModel.UserRole.Student,
+                        Cnp = "1922345987292",
+                        FirstName = "Student2",
+                        LastName = "Licenta",
+                        IcSerie = "VS",
+                        IcNumber = "665577",
+                        BirthPlace = "Vaslui, strada Vasile Lupu",
+                        FatherFirstName = "Sudo Su",
+                        MotherFirstName = "Emilia",
+                        Specialization = "Informatica",
+                        Year = "3",
+                        Gender = UserModel.UserGender.Male,
                     },
                     new UserModel
                     {
                         UserId = 6,
                         Email = "student3@fmi.unibuc.ro",
                         PasswordHash = AuthController.ComputeHash("student"),
-                        Role = UserModel.UserRole.Student
+                        Role = UserModel.UserRole.Student,
+                        Cnp = "1922345987292",
+                        FirstName = "Student3",
+                        LastName = "Licenta",
+                        IcSerie = "VS",
+                        IcNumber = "665577",
+                        BirthPlace = "Vaslui, strada Vasile Lupu",
+                        FatherFirstName = "Sudo Su",
+                        MotherFirstName = "Emilia",
+                        Specialization = "Informatica",
+                        Year = "3",
+                        Gender = UserModel.UserGender.Male,
                     }
                 );
 
@@ -256,9 +300,9 @@ namespace FMI_Cazare.Controllers
                         FormId = 1,
                         SessionId = 1,
                         UserId = 4,
-                        State = FormModel.FormState.Saved,
+                        State = FormModel.FormState.Unknown,
                         IsContinuity = false,
-                        IsSocial = true
+                        IsSocial = false
                     }
                 );
 

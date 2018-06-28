@@ -12,6 +12,10 @@
     var vm = this;
     $scope.test = "Hello, world!";
 
+    $scope.goToForm = function () {
+      $state.go("studentForm");
+    }
+
     $scope.form =
 
 
