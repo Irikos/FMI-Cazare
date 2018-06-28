@@ -30,7 +30,7 @@ namespace FMI_Cazare.Controllers
                 .Include(m => m.User)
                 .Include(m => m.DormPreferences)
                     .ThenInclude(m => m.Dorm)
-                .FirstOrDefaultAsync(m => m.UserId == id && m.State == FormModel.FormState.Approved);
+                .FirstOrDefaultAsync(m => m.FormId == id && m.State == FormModel.FormState.Approved);
 
             if (form == null)
                 return NotFound();
